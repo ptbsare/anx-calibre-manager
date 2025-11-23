@@ -433,8 +433,15 @@ def mcp_endpoint():
                 "jsonrpc": "2.0",
                 "id": req_id,
                 "result": {
-                    "protocolVersion": "2024-11-05",
-                    "capabilities": {"tools": {"listChanged": False}},
+                    "protocolVersion": "2025-06-18",
+                    "capabilities": {
+                        "tools": {"listChanged": False},
+                        "resources": {
+                          "subscribe": False,
+                          "listChanged": False
+                        },
+                        "prompts": {}
+                    },
                     "serverInfo": {"name": "anx-calibre-manager", "version": "0.1.0"}
                 }
             })
@@ -442,9 +449,43 @@ def mcp_endpoint():
         if method == 'notifications/initialized':
             return "", 204
 
+        if method == 'ping':
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {}
+            })
+
         if method == 'tools/list':
             tool_list = [{"name": name, "description": info['description'], "inputSchema": get_input_schema(info['params'])} for name, info in TOOLS.items()]
             return jsonify({"jsonrpc": "2.0", "id": req_id, "result": {"tools": tool_list}})
+
+        elif method == 'resources/templates/list':
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "resourceTemplates": []
+                }
+            })
+
+        elif method == 'resources/list':
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "resources": []
+                }
+            })
+
+        elif method == 'prompts/list':
+            return jsonify({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "prompts": []
+                }
+            })
 
         elif method == 'tools/call':
             tool_name = params.get('name')
