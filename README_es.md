@@ -33,7 +33,6 @@ Una aplicación web moderna y orientada a dispositivos móviles para gestionar t
     - **Administrador**: Control total sobre usuarios, configuraciones globales y todos los libros.
     - **Mantenedor**: Puede editar los metadatos de todos los libros.
     - **Usuario**: Puede subir libros, gestionar su propia biblioteca WebDAV, tokens MCP, enviar libros a Kindle y **editar los libros que ha subido**.
-- **Diseño Seguro**: Para proteger la seguridad de su biblioteca de Calibre, Anx Calibre Manager no proporciona una interfaz para eliminar libros de Calibre. Si su biblioteca contiene miles de libros, se recomienda exponer Anx Calibre Manager en la red pública y gestionar la eliminación de libros a través del servidor de contenido de Calibre en la red interna (puerto predeterminado 8080).
 - **Registro solo por Invitación**: Los administradores pueden generar códigos de invitación para controlar el registro de usuarios. Esta función está habilitada por defecto para evitar registros no autorizados.
 - **Libros Subidos Editables por el Usuario**: Los usuarios regulares ahora pueden editar los metadatos de los libros que han subido. Esta funcionalidad se basa en una columna personalizada de Calibre llamada `#library` (tipo: `Texto`). Cuando un usuario sube un libro, su nombre de usuario se guarda automáticamente en este campo. Los usuarios pueden editar cualquier libro en el que figuren como propietarios en el campo `#library`.
     - **Recomendación para Usuarios de Docker**: Para habilitar esta función, asegúrate de tener una columna personalizada en tu biblioteca de Calibre llamada `#library` (sensible a mayúsculas y minúsculas) con el tipo `Texto`.
@@ -275,7 +274,17 @@ Aquí hay algunos problemas comunes y sus soluciones:
         *   **Tipo de columna**: `Fecha`
     5.  Haz clic en `Aplicar` y reinicia tu servidor de Calibre si está en funcionamiento. Después de añadir estas columnas, las funciones de edición funcionarán correctamente.
 
-### 6. No quiero usar el pesado cliente de escritorio de Calibre o el básico calibre-server para gestionar mi biblioteca. ¿Puedo usar otros frontends como Calibre-Web, Calibre-Web-Automated o Talebook?
+### 6. ¿Por qué no hay un botón para eliminar libros de Calibre en el panel izquierdo?
+
+**Esta es una característica de seguridad intencional.** Cuando Anx Calibre Manager se expone a Internet público, para evitar la eliminación accidental o maliciosa de libros en su biblioteca (especialmente bibliotecas con miles de libros), no proporcionamos una interfaz para eliminar libros de Calibre.
+
+**Para eliminar libros de Calibre, utilice uno de los siguientes métodos:**
+- Acceda al Servidor de Contenido de Calibre a través de la red interna (puerto predeterminado `8080`) para realizar la eliminación
+- O use el cliente de escritorio de Calibre para la gestión
+
+Esto garantiza que su biblioteca pueda disfrutar de la conveniencia de Anx Calibre Manager sin el riesgo de pérdida de datos por estar expuesta a Internet público.
+
+### 7. No quiero usar el pesado cliente de escritorio de Calibre o el básico calibre-server para gestionar mi biblioteca. ¿Puedo usar otros frontends como Calibre-Web, Calibre-Web-Automated o Talebook?
 
 **¡Sí!** Puedes usar cualquier frontend compatible con Calibre junto con esta aplicación. Estos frontends interactúan con la misma base de datos de la biblioteca de Calibre (`metadata.db`), como se muestra en este diagrama:
 

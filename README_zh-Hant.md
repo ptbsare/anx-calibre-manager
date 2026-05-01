@@ -33,7 +33,6 @@
     - **管理員 (Admin)**: 對使用者、全域設定和所有書籍擁有完全控制權。
     - **維護者 (Maintainer)**: 可以編輯所有書籍元資料。
     - **普通使用者 (User)**: 可以上傳書籍、管理自己的 WebDAV 書庫、MCP token、傳送書籍到 Kindle，以及**編輯自己上傳的書籍**。
-- **安全設計**: 為保護您的 Calibre 書庫安全，Anx Calibre Manager 不提供刪除 Calibre 書籍的介面。如果您的書庫包含成千上萬本圖書，建議在公用網路暴露 Anx Calibre Manager 時，透過內網的 Calibre 內容伺服器（預設通訊埠 8080）來管理書籍刪除操作。
 - **僅限邀請註冊**: 管理員可以產生邀請碼來控制使用者註冊。此功能預設啟用，以防止未經授權的註冊。
 - **使用者可編輯自己上傳的書籍**: 普通使用者現在可以編輯自己上傳的書籍的元資料。此功能依賴於 Calibre 中的一個名為 `#library` 的自訂欄位（類型：`文字`）。當使用者上傳書籍時，他們的使用者名稱會自動儲存到該欄位。使用者可以編輯 `#library` 欄位中記錄的、由自己上傳的任何書籍。
     - **Docker 使用者建議**: 為啟用此功能，請確保您的 Calibre 書庫中有一個名為 `#library` 的自訂欄位（區分大小寫），類型為 `文字`。
@@ -275,11 +274,19 @@
         *   **欄位類型**: `日期`
     5.  點擊 `套用` 並重新啟動您的 Calibre 伺服器。新增這些欄位後，編輯功能即可正常運作。
 
-### 6. 我不想使用笨重的 Calibre 桌面用戶端或基本的 calibre-server 來管理我的書庫。我可以使用 Calibre-Web、Calibre-Web-Automated 或 Talebook 等其他前端嗎？
+### 6. 為什麼左側 Calibre 書庫沒有刪除書籍的按鈕？
+
+**這是刻意設計的安全特性。** 當 Anx Calibre Manager 暴露在公用網路時，為了防止誤操作或惡意刪除您書庫中的書籍（特別是擁有成千上萬本圖書的書庫），我們沒有提供刪除 Calibre 書籍的介面。
+
+**如需刪除 Calibre 書籍，請使用以下方式：**
+- 透過內網存取 Calibre 內容伺服器（預設通訊埠 `8080`）進行刪除操作
+- 或使用 Calibre 桌面客戶端進行管理
+
+這樣可以確保您的書庫在享受 Anx Calibre Manager 便利功能的同時，不會因暴露在公網上而面臨資料遺失的風險。
+
+### 7. 我不想使用笨重的 Calibre 桌面用戶端或基本的 calibre-server 來管理我的書庫。我可以使用 Calibre-Web、Calibre-Web-Automated 或 Talebook 等其他前端嗎？
 
 **當然可以！** 您可以將任何 Calibre 相容的前端與本應用程式一起使用。這些前端都與相同的 Calibre 書庫資料庫 (`metadata.db`) 互動，如下圖所示：
-
-<p align="center">
   <img src="screenshots/Document%20-%20BookManagerExplained.jpg" alt="Calibre 書庫架構">
 </p>
 

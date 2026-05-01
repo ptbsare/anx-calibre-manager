@@ -33,7 +33,6 @@ A modern, mobile-first web application to manage your ebook library, integrating
     - **Admin**: Full control over users, global settings, and all books.
     - **Maintainer**: Can edit all book metadata.
     - **User**: Can upload books, manage their own WebDAV library, MCP tokens, send books to Kindle, and **edit books they have uploaded**.
-- **Security Design**: To protect the security of your Calibre library, Anx Calibre Manager does not provide an interface for deleting Calibre books. If your library contains thousands of books, it is recommended to expose Anx Calibre Manager on the public network and manage book deletion through the Calibre Content Server on the internal network (default port 8080).
 - **Invite-Only Registration**: Admins can generate invite codes to control user registration. This feature is enabled by default to prevent unauthorized sign-ups.
 - **User-Editable Uploaded Books**: Regular users can now edit metadata for books they have uploaded. This functionality relies on a Calibre custom column named `#library` (type: `Text`). When a user uploads a book, their username is automatically saved to this field. Users can then edit any book where they are listed as the owner in the `#library` field.
     - **Recommendation for Docker Users**: To enable this feature, please ensure you have a custom column in your Calibre library named `#library` (case-sensitive) with the type `Text`.
@@ -273,7 +272,17 @@ Here are some common issues and their solutions:
         *   **Column type**: `Date`
     5.  Click `Apply` and restart your Calibre server if it's running. After adding these columns, the editing functions will work correctly.
 
-### 6. I don't want to use the heavy Calibre desktop client or the basic calibre-server to manage my library. Can I use other frontends like Calibre-Web, Calibre-Web-Automated, or Talebook?
+### 6. Why is there no delete button for Calibre books in the left panel?
+
+**This is an intentional security design.** When Anx Calibre Manager is exposed to the public internet, to prevent accidental or malicious deletion of books in your library (especially libraries with thousands of books), we do not provide an interface for deleting Calibre books.
+
+**To delete Calibre books, please use one of the following methods:**
+- Access the Calibre Content Server via the internal network (default port `8080`) to perform deletion
+- Or use the Calibre desktop client for management
+
+This ensures that your library can enjoy the convenience of Anx Calibre Manager without the risk of data loss from being exposed to the public internet.
+
+### 7. I don't want to use the heavy Calibre desktop client or the basic calibre-server to manage my library. Can I use other frontends like Calibre-Web, Calibre-Web-Automated, or Talebook?
 
 **Yes!** You can use any Calibre-compatible frontend alongside this application. These frontends all interact with the same Calibre library database (`metadata.db`), as shown in this diagram:
 

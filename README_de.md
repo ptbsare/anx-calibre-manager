@@ -33,7 +33,6 @@ Eine moderne, mobil-orientierte Webanwendung zur Verwaltung Ihrer E-Book-Bibliot
     - **Admin**: Volle Kontrolle über Benutzer, globale Einstellungen und alle Bücher.
     - **Maintainer**: Kann alle Buchmetadaten bearbeiten.
     - **Benutzer**: Kann Bücher hochladen, seine eigene WebDAV-Bibliothek, MCP-Token verwalten, Bücher an Kindle senden und **von ihm hochgeladene Bücher bearbeiten**.
-- **Sicherheitsdesign**: Um die Sicherheit Ihrer Calibre-Bibliothek zu schützen, bietet Anx Calibre Manager keine Schnittstelle zum Löschen von Calibre-Büchern. Wenn Ihre Bibliothek Tausende von Büchern enthält, wird empfohlen, Anx Calibre Manager im öffentlichen Netzwerk zu exponieren und die Buchlösung über den Calibre-Content-Server im internen Netzwerk (Standardport 8080) zu verwalten.
 - **Registrierung nur mit Einladung**: Administratoren können Einladungscodes generieren, um die Benutzerregistrierung zu steuern. Diese Funktion ist standardmäßig aktiviert, um unbefugte Anmeldungen zu verhindern.
 - **Vom Benutzer bearbeitbare hochgeladene Bücher**: Reguläre Benutzer können jetzt Metadaten für von ihnen hochgeladene Bücher bearbeiten. Diese Funktionalität basiert auf einer benutzerdefinierten Spalte in Calibre namens `#library` (Typ: `Text`). Wenn ein Benutzer ein Buch hochlädt, wird sein Benutzername automatisch in diesem Feld gespeichert. Benutzer können dann jedes Buch bearbeiten, bei dem sie im Feld `#library` als Eigentümer aufgeführt sind.
     - **Empfehlung für Docker-Benutzer**: Um diese Funktion zu aktivieren, stellen Sie bitte sicher, dass Sie in Ihrer Calibre-Bibliothek eine benutzerdefinierte Spalte namens `#library` (Groß-/Kleinschreibung beachten) vom Typ `Text` haben.
@@ -275,7 +274,17 @@ Hier sind einige häufige Probleme und deren Lösungen:
         *   **Spaltentyp**: `Datum`
     5.  Klicken Sie auf `Anwenden` und starten Sie Ihren Calibre-Server neu, falls er läuft. Nach dem Hinzufügen dieser Spalten funktionieren die Bearbeitungsfunktionen korrekt.
 
-### 6. Ich möchte nicht den schweren Calibre-Desktop-Client oder den einfachen calibre-server verwenden, um meine Bibliothek zu verwalten. Kann ich andere Frontends wie Calibre-Web, Calibre-Web-Automated oder Talebook verwenden?
+### 6. Warum gibt es keine Schaltfläche zum Löschen von Calibre-Büchern im linken Bereich?
+
+**Dies ist ein absichtliches Sicherheitsfeature.** Wenn Anx Calibre Manager im öffentlichen Internet exponiert ist, um versehentliches oder böswilliges Löschen von Büchern in Ihrer Bibliothek zu verhindern (insbesondere bei Bibliothek mit Tausenden von Büchern), stellen wir keine Schnittstelle zum Löschen von Calibre-Büchern bereit.
+
+**Um Calibre-Bücher zu löschen, verwenden Sie bitte eine der folgenden Methoden:**
+- Greifen Sie über das interne Netzwerk auf den Calibre-Content-Server zu (Standardport `8080`), um Löschvorgänge durchzuführen
+- Oder verwenden Sie den Calibre-Desktop-Client für die Verwaltung
+
+Dies stellt sicher, dass Ihre Bibliothek die Bequemlichkeit von Anx Calibre Manager genießen kann, ohne das Risiko eines Datenverlusts durch die Exposition im öffentlichen Internet.
+
+### 7. Ich möchte nicht den schweren Calibre-Desktop-Client oder den einfachen calibre-server verwenden, um meine Bibliothek zu verwalten. Kann ich andere Frontends wie Calibre-Web, Calibre-Web-Automated oder Talebook verwenden?
 
 **Ja!** Sie können jedes Calibre-kompatible Frontend zusammen mit dieser Anwendung verwenden. Diese Frontends interagieren alle mit derselben Calibre-Bibliotheksdatenbank (`metadata.db`), wie in diesem Diagramm gezeigt:
 
