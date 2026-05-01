@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return await response.json();
         } catch (error) {
             console.error(error);
-            addMessageToUI({ role: 'model', content: `${t.errorLoadingHistory} ${error.message}` });
+            addMessageToUI({ role: 'assistant', content: `${t.errorLoadingHistory} ${error.message}` });
             return { messages: [], session_id: null };
         }
     };
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(timer) timer.remove();
                 } else {
                     modelMessageWrapper.remove(); // All retries failed for empty response
-                    addMessageToUI({ role: 'model', content: t.allRetriesFailedEmpty });
+                    addMessageToUI({ role: 'assistant', content: t.allRetriesFailedEmpty });
                 }
 
             } catch (error) {
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (attempt >= maxRetries) {
                     modelMessageWrapper.remove(); // Clean up the loading message
-                    addMessageToUI({ role: 'model', content: `${t.anErrorOccurred} ${error.message}` });
+                    addMessageToUI({ role: 'assistant', content: `${t.anErrorOccurred} ${error.message}` });
                     return;
                 }
 
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         dom.sendButton.disabled = true;
-        const modelMessageWrapper = addMessageToUI({ role: 'model', content: '' });
+        const modelMessageWrapper = addMessageToUI({ role: 'assistant', content: '' });
         
         const url = '/api/llm/regenerate';
         const options = {
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
         autoResizeTextarea();
         dom.sendButton.disabled = true;
 
-        const modelMessageWrapper = addMessageToUI({ role: 'model', content: '' });
+        const modelMessageWrapper = addMessageToUI({ role: 'assistant', content: '' });
 
         const initialUrl = '/api/llm/chat';
         const initialOptions = {
@@ -430,14 +430,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isHtml) {
             messageContent.innerHTML = message.content;
-        } else if (message.role === 'model') {
+        } else if (message.role === 'assistant') {
             messageContent.innerHTML = marked.parse(message.content || '');
             renderMermaid(messageContent);
         } else {
             messageContent.textContent = message.content;
         }
 
-        if (message.role === 'model' && message.content.includes('spinner')) {
+        if (message.role === 'assistant' && message.content.includes('spinner')) {
             messageWrapper.classList.add('loading');
         }
         
@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
             actionsContainer.appendChild(deleteButton);
         }
 
-        if (message.role === 'model' && messageId) {
+        if (message.role === 'assistant' && messageId) {
             const deleteButton = createActionButton(t.delete, 'fa-trash-alt', 'delete-btn', () => deleteMessageHandler(messageWrapper));
             actionsContainer.appendChild(deleteButton);
         }

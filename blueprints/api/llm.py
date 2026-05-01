@@ -121,7 +121,7 @@ def _generate_llm_response(session_id, book_id, book_type, user_info_dict, trans
             cursor = db.cursor()
             cursor.execute(
                 'INSERT INTO llm_chat_messages (session_id, role, content) VALUES (?, ?, ?)',
-                (session_id, 'model', final_text)
+                (session_id, 'assistant', final_text)
             )
             model_message_id = cursor.lastrowid
             

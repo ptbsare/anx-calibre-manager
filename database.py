@@ -195,6 +195,17 @@ def update_schema_if_needed(db):
             create_user_activity_log_table(cursor)
             db.commit()
 
+    # 检查并迁移 llm_chat_messages 表中的 role 字段
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='llm_chat_messages'")
+    if cursor.fetchone() is not None:
+        # 检查是否有 'model' 角色需要迁移
+        cursor.execute("SELECT COUNT(*) as count FROM llm_chat_messages WHERE role = 'model'")
+        result = cursor.fetchone()
+        if result and result['count'] > 0:
+            print("Migrating database: updating 'model' role to 'assistant' in llm_chat_messages table.")
+            cursor.execute("UPDATE llm_chat_messages SET role = 'assistant' WHERE role = 'model'")
+            db.commit()
+
 
 def create_audiobook_progress_table(cursor):
     """创建有声书播放进度表的辅助函数"""
