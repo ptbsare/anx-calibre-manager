@@ -12,14 +12,10 @@ function updateTTS_UI() {
     // 1. Toggle visibility of provider-specific settings
     toggleTTSSettings();
 
-    // 2. Update the voice datalist
-    updateVoiceDatalist();
-
-    // 3. Set a default voice if the current one is invalid or empty
+    // 2. Set a default voice if the current one is empty
     const currentVoice = voiceInput.value;
-    const newVoiceList = ttsVoiceLists[provider] || [];
 
-    if (!currentVoice || !newVoiceList.includes(currentVoice)) {
+    if (!currentVoice ) {
         if (provider === 'edge') {
             voiceInput.value = 'zh-CN-YunjianNeural';
         } else if (provider === 'openai') {
