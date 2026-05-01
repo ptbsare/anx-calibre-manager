@@ -33,6 +33,7 @@
     - **管理员 (Admin)**: 对用户、全局设置和所有书籍拥有完全控制权。
     - **维护者 (Maintainer)**: 可以编辑所有书籍元数据。
     - **普通用户 (User)**: 可以上传书籍、管理自己的 WebDAV 书库、MCP token、发送书籍到 Kindle，以及**编辑自己上传的书籍**。
+- **安全设计**: 为保护您的 Calibre 书库安全，Anx Calibre Manager 不提供删除 Calibre 书籍的接口。如果您的书库包含成千上万本图书，建议在公网暴露 Anx Calibre Manager 时，通过内网的 Calibre 内容服务器（默认端口 8080）来管理书籍删除操作。
 - **仅限邀请注册**: 管理员可以生成邀请码来控制用户注册。此功能默认启用，以防止未经授权的注册。
 - **用户可编辑自己上传的书籍**: 普通用户现在可以编辑自己上传的书籍的元数据。此功能依赖于 Calibre 中的一个名为 `#library` 的自定义列（类型：`文本`）。当用户上传书籍时，他们的用户名会自动保存到该字段。用户可以编辑 `#library` 字段中记录的、由自己上传的任何书籍。
     - **Docker 用户建议**: 为启用此功能，请确保您的 Calibre 书库中有一个名为 `#library` 的自定义列（区分大小写），类型为 `文本`。
@@ -325,7 +326,7 @@ services:
     volumes:
       - ./config:/config
       - ./webdav:/webdav
-      - ./library:"/Calibre Library"
+      - "./library:/Calibre Library"
     environment:
       - CALIBRE_URL=http://localhost:8080
       - CALIBRE_USERNAME=admin

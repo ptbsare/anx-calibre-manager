@@ -33,6 +33,7 @@ Eine moderne, mobil-orientierte Webanwendung zur Verwaltung Ihrer E-Book-Bibliot
     - **Admin**: Volle Kontrolle über Benutzer, globale Einstellungen und alle Bücher.
     - **Maintainer**: Kann alle Buchmetadaten bearbeiten.
     - **Benutzer**: Kann Bücher hochladen, seine eigene WebDAV-Bibliothek, MCP-Token verwalten, Bücher an Kindle senden und **von ihm hochgeladene Bücher bearbeiten**.
+- **Sicherheitsdesign**: Um die Sicherheit Ihrer Calibre-Bibliothek zu schützen, bietet Anx Calibre Manager keine Schnittstelle zum Löschen von Calibre-Büchern. Wenn Ihre Bibliothek Tausende von Büchern enthält, wird empfohlen, Anx Calibre Manager im öffentlichen Netzwerk zu exponieren und die Buchlösung über den Calibre-Content-Server im internen Netzwerk (Standardport 8080) zu verwalten.
 - **Registrierung nur mit Einladung**: Administratoren können Einladungscodes generieren, um die Benutzerregistrierung zu steuern. Diese Funktion ist standardmäßig aktiviert, um unbefugte Anmeldungen zu verhindern.
 - **Vom Benutzer bearbeitbare hochgeladene Bücher**: Reguläre Benutzer können jetzt Metadaten für von ihnen hochgeladene Bücher bearbeiten. Diese Funktionalität basiert auf einer benutzerdefinierten Spalte in Calibre namens `#library` (Typ: `Text`). Wenn ein Benutzer ein Buch hochlädt, wird sein Benutzername automatisch in diesem Feld gespeichert. Benutzer können dann jedes Buch bearbeiten, bei dem sie im Feld `#library` als Eigentümer aufgeführt sind.
     - **Empfehlung für Docker-Benutzer**: Um diese Funktion zu aktivieren, stellen Sie bitte sicher, dass Sie in Ihrer Calibre-Bibliothek eine benutzerdefinierte Spalte namens `#library` (Groß-/Kleinschreibung beachten) vom Typ `Text` haben.
@@ -326,7 +327,7 @@ services:
     volumes:
       - ./config:/config
       - ./webdav:/webdav
-      - ./library:"/Calibre Library"
+      - "./library:/Calibre Library"
     environment:
       - CALIBRE_URL=http://localhost:8080
       - CALIBRE_USERNAME=admin

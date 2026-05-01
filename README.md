@@ -33,6 +33,7 @@ A modern, mobile-first web application to manage your ebook library, integrating
     - **Admin**: Full control over users, global settings, and all books.
     - **Maintainer**: Can edit all book metadata.
     - **User**: Can upload books, manage their own WebDAV library, MCP tokens, send books to Kindle, and **edit books they have uploaded**.
+- **Security Design**: To protect the security of your Calibre library, Anx Calibre Manager does not provide an interface for deleting Calibre books. If your library contains thousands of books, it is recommended to expose Anx Calibre Manager on the public network and manage book deletion through the Calibre Content Server on the internal network (default port 8080).
 - **Invite-Only Registration**: Admins can generate invite codes to control user registration. This feature is enabled by default to prevent unauthorized sign-ups.
 - **User-Editable Uploaded Books**: Regular users can now edit metadata for books they have uploaded. This functionality relies on a Calibre custom column named `#library` (type: `Text`). When a user uploads a book, their username is automatically saved to this field. Users can then edit any book where they are listed as the owner in the `#library` field.
     - **Recommendation for Docker Users**: To enable this feature, please ensure you have a custom column in your Calibre library named `#library` (case-sensitive) with the type `Text`.
@@ -324,7 +325,7 @@ services:
     volumes:
       - ./config:/config
       - ./webdav:/webdav
-      - ./library:"/Calibre Library"
+      - "./library:/Calibre Library"
     environment:
       - CALIBRE_URL=http://localhost:8080
       - CALIBRE_USERNAME=admin

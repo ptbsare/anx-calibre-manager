@@ -33,6 +33,7 @@ Une application web moderne et axée sur le mobile pour gérer votre bibliothèq
     - **Admin**: Contrôle total sur les utilisateurs, les paramètres globaux et tous les livres.
     - **Mainteneur**: Peut modifier les métadonnées de tous les livres.
     - **Utilisateur**: Peut téléverser des livres, gérer sa propre bibliothèque WebDAV, ses jetons MCP, envoyer des livres à Kindle et **modifier les livres qu'il a téléversés**.
+- **Sécurité**: Pour protéger la sécurité de votre bibliothèque Calibre, Anx Calibre Manager ne fournit pas d'interface pour supprimer des livres de Calibre. Si votre bibliothèque contient des milliers de livres, il est recommandé d'exposer Anx Calibre Manager sur le réseau public et de gérer la suppression des livres via le serveur de contenu Calibre sur le réseau interne (port par défaut 8080).
 - **Inscription sur Invitation Uniquement**: Les administrateurs peuvent générer des codes d'invitation pour contrôler l'inscription des utilisateurs. Cette fonctionnalité est activée par défaut pour empêcher les inscriptions non autorisées.
 - **Livres Téléversés Modifiables par l'Utilisateur**: Les utilisateurs réguliers peuvent désormais modifier les métadonnées des livres qu'ils ont téléversés. Cette fonctionnalité repose sur une colonne personnalisée de Calibre nommée `#library` (type : `Texte`). Lorsqu'un utilisateur téléverse un livre, son nom d'utilisateur est automatiquement enregistré dans ce champ. Les utilisateurs peuvent alors modifier tout livre où ils sont listés comme propriétaires dans le champ `#library`.
     - **Recommandation pour les Utilisateurs de Docker**: Pour activer cette fonctionnalité, veuillez vous assurer que vous avez une colonne personnalisée dans votre bibliothèque Calibre nommée `#library` (sensible à la casse) de type `Texte`.
@@ -326,7 +327,7 @@ services:
     volumes:
       - ./config:/config
       - ./webdav:/webdav
-      - ./library:"/Calibre Library"
+      - "./library:/Calibre Library"
     environment:
       - CALIBRE_URL=http://localhost:8080
       - CALIBRE_USERNAME=admin
