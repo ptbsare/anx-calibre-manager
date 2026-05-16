@@ -159,4 +159,4 @@ ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/entrypoint.sh"]
 # This allows us to send signals (like SIGHUP for reloading) to it.
 # Access logs are disabled. Error logs go to stderr (visible in `docker logs`).
 # Application logs are saved to /config/logs/app.log and also output to stdout.
-CMD gunicorn --bind 0.0.0.0:$PORT --workers ${GUNICORN_WORKERS} --timeout 3600 --pid /tmp/gunicorn.pid --access-logfile /dev/null --error-logfile - --capture-output --enable-stdio-inheritance "app:create_app()"
+CMD gunicorn --bind [::]:$PORT --workers ${GUNICORN_WORKERS} --timeout 3600 --pid /tmp/gunicorn.pid --access-logfile /dev/null --error-logfile - --capture-output --enable-stdio-inheritance "app:create_app()"

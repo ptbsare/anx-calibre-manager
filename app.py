@@ -281,7 +281,8 @@ if __name__ == '__main__':
     app = create_app()
     
     port = int(os.environ.get("PORT", 5000))
-    server = wsgi.Server(('0.0.0.0', port), app)
+    # 监听 IPv6 双栈地址，同时支持 IPv4 和 IPv6
+    server = wsgi.Server(('::', port), app)
     try:
         server.start()
     except KeyboardInterrupt:
