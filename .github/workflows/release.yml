@@ -43,7 +43,7 @@ jobs:
             local title="$1"
             local emoji="$2"
             local pattern="$3"
-            local commits=$(git log --pretty=format:"- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --grep="$pattern" 2>/dev/null)
+            local commits=$(git log -i --pretty=format:- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --grep="$pattern" 2>/dev/null)
             
             if [ -n "$commits" ]; then
               echo "## ${emoji} ${title}" >> $GITHUB_OUTPUT
