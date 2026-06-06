@@ -25,7 +25,6 @@ server {
 
     server_name example.example.org;
 
-    error_page 497 https://$host:$server_port$request_uri;
 
     client_max_body_size 1000M;
 
@@ -95,7 +94,7 @@ server {
         proxy_connect_timeout 75s;
 
         # Required for SSE event stream
-        proxy_set_header Connection '';
+        proxy_set_header Connection $http_connection;
         proxy_set_header X-Accel-Buffering no;
         chunked_transfer_encoding on;
         proxy_request_buffering off;
