@@ -444,12 +444,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const actionsContainer = document.createElement('div');
         actionsContainer.classList.add('message-actions');
         
-        const copyButton = createActionButton(t.copy, 'fa-copy', 'copy-btn', () => copyMessageHandler(messageWrapper));
+const copyButton = createActionButton(t.copy || 'Copy', 'fa-copy', 'copy-btn', () => copyMessageHandler(messageWrapper));
         actionsContainer.appendChild(copyButton);
 
         if (message.role === 'user') {
             const regenerateButton = createActionButton(t.regenerate || 'Regenerate', 'fa-sync-alt', 'regenerate-btn', () => handleRegenerate(messageWrapper));
-            const deleteButton = createActionButton(t.delete, 'fa-trash-alt', 'delete-btn', () => deleteMessageHandler(messageWrapper));
+const deleteButton = createActionButton(t.delete || 'Delete', 'fa-trash-alt', 'delete-btn', () => deleteMessageHandler(messageWrapper));
             
             if (!messageId) {
                 regenerateButton.disabled = true;
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (message.role === 'assistant' && messageId) {
-            const deleteButton = createActionButton(t.delete, 'fa-trash-alt', 'delete-btn', () => deleteMessageHandler(messageWrapper));
+const deleteButton = createActionButton(t.delete || 'Delete', 'fa-trash-alt', 'delete-btn', () => deleteMessageHandler(messageWrapper));
             actionsContainer.appendChild(deleteButton);
         }
         
