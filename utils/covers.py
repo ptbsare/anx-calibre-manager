@@ -5,14 +5,13 @@ import sqlite3
 
 import config_manager
 from utils.auth import get_calibre_auth
+from utils.library_provider import library_request
 from anx_library import get_anx_user_dirs
 
 def get_calibre_cover_data(book_id):
-    """获取指定 Calibre 书籍的封面二进制数据"""
-    config = config_manager.config
-    url = f"{config['CALIBRE_URL']}/get/cover/{book_id}"
+    """获取指定书籍的封面二进制数据（通过当前活跃的 library provider）"""
     try:
-        response = requests.get(url, auth=get_calibre_auth(), stream=True)
+        response = library_request('GET', f"/get/cover/{book_id}", stream=True)
         response.raise_for_status()
         return response.content
     except requests.exceptions.RequestException as e:
