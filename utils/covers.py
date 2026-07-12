@@ -9,7 +9,7 @@ from utils.library_provider import library_request
 from anx_library import get_anx_user_dirs
 
 def get_calibre_cover_data(book_id):
-    """获取指定书籍的封面二进制数据（通过当前活跃的 library provider）"""
+    """获取指定书籍的封面二进制数据（通过当前激活的 library provider）"""
     try:
         response = library_request('GET', f"/get/cover/{book_id}", stream=True)
         response.raise_for_status()

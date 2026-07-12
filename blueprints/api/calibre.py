@@ -242,5 +242,7 @@ def download_calibre_book(book_id, download_format='mobi'):
         response.raise_for_status()
         return response.content, filename
     except requests.exceptions.RequestException as e:
-        print(f"Error downloading book {book_id} in format {download_format}: {e}")
+        from utils.library_provider import get_base_url
+        url = f"{get_base_url()}/get/{download_format.lower()}/{book_id}"
+        print(f"Error downloading book {book_id} in format {download_format} from URL {url}: {e}")
         return None, None

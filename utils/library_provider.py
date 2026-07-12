@@ -33,17 +33,22 @@ def get_base_url():
     return (config_manager.config.get('CALIBRE_URL') or '').rstrip('/')
 
 
+def _get_credentials(username_key, password_key):
+    """Return (username, password) tuple from config, or (None, None) if either is absent."""
+    username = config_manager.config.get(username_key) or None
+    password = config_manager.config.get(password_key) or None
+    return username, password
+
+
 def get_auth():
     """Return an auth object appropriate for the active provider."""
     if is_talebook():
-        username = config_manager.config.get('TALEBOOK_USERNAME') or None
-        password = config_manager.config.get('TALEBOOK_PASSWORD') or None
+        username, password = _get_credentials('TALEBOOK_USERNAME', 'TALEBOOK_PASSWORD')
         if username and password:
             return HTTPBasicAuth(username, password)
         return None
     # Calibre uses HTTP Digest Auth
-    username = config_manager.config.get('CALIBRE_USERNAME') or None
-    password = config_manager.config.get('CALIBRE_PASSWORD') or None
+    username, password = _get_credentials('CALIBRE_USERNAME', 'CALIBRE_PASSWORD')
     if username and password:
         return HTTPDigestAuth(username, password)
     return None
