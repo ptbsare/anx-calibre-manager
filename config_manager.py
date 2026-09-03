@@ -14,12 +14,22 @@ GUNICORN_PID_FILE = "/tmp/gunicorn.pid"
 
 # Define default configuration and environment variable mappings
 DEFAULT_CONFIG = {
+    # Library provider selection: 'calibre' (default) or 'talebook'
+    'LIBRARY_PROVIDER': {'env': 'LIBRARY_PROVIDER', 'default': 'calibre'},
+
     # Global Calibre related settings
     'CALIBRE_URL': {'env': 'CALIBRE_URL', 'default': 'http://localhost:8081'},
     'CALIBRE_USERNAME': {'env': 'CALIBRE_USERNAME', 'default': ''},
     'CALIBRE_PASSWORD': {'env': 'CALIBRE_PASSWORD', 'default': ''},
     'CALIBRE_DEFAULT_LIBRARY_ID': {'env': 'CALIBRE_DEFAULT_LIBRARY_ID', 'default': 'Calibre_Library'},
     'CALIBRE_ADD_DUPLICATES': {'env': 'CALIBRE_ADD_DUPLICATES', 'default': False},
+
+    # Talebook connection settings (used when LIBRARY_PROVIDER=talebook)
+    'TALEBOOK_URL': {'env': 'TALEBOOK_URL', 'default': ''},
+    'TALEBOOK_USERNAME': {'env': 'TALEBOOK_USERNAME', 'default': ''},
+    'TALEBOOK_PASSWORD': {'env': 'TALEBOOK_PASSWORD', 'default': ''},
+    'TALEBOOK_TIMEOUT': {'env': 'TALEBOOK_TIMEOUT', 'default': 15},
+    'TALEBOOK_VERIFY_SSL': {'env': 'TALEBOOK_VERIFY_SSL', 'default': True},
     
     # Global application security settings
     'SECRET_KEY': {'env': 'SECRET_KEY', 'default': ''}, # Will be generated on first load
@@ -96,12 +106,12 @@ class ConfigManager:
             # Priority 2: Environment variables
             elif os.environ.get(values['env']):
                 val = os.environ.get(values['env'])
-                if key in ['LOGIN_MAX_ATTEMPTS', 'SESSION_LIFETIME_DAYS', 'SMTP_PORT', 'AUDIOBOOK_CLEANUP_DAYS', 'DEFAULT_TTS_SENTENCE_PAUSE', 'DEFAULT_TTS_PARAGRAPH_PAUSE']:
+                if key in ['LOGIN_MAX_ATTEMPTS', 'SESSION_LIFETIME_DAYS', 'SMTP_PORT', 'AUDIOBOOK_CLEANUP_DAYS', 'DEFAULT_TTS_SENTENCE_PAUSE', 'DEFAULT_TTS_PARAGRAPH_PAUSE', 'TALEBOOK_TIMEOUT']:
                     try:
                         loaded_config[key] = int(val)
                     except (ValueError, TypeError):
                         loaded_config[key] = values['default']
-                elif key in ['REQUIRE_INVITE_CODE', 'DISABLE_NORMAL_USER_UPLOAD', 'CALIBRE_ADD_DUPLICATES', 'ENABLE_ACTIVITY_LOG']:
+                elif key in ['REQUIRE_INVITE_CODE', 'DISABLE_NORMAL_USER_UPLOAD', 'CALIBRE_ADD_DUPLICATES', 'ENABLE_ACTIVITY_LOG', 'TALEBOOK_VERIFY_SSL']:
                     # Handle boolean values from environment variables
                     loaded_config[key] = val.lower() in ('true', '1', 'yes', 'on')
                 else:
@@ -148,10 +158,10 @@ class ConfigManager:
         for key, value in new_config.items():
             if key in DEFAULT_CONFIG:
                 # Skip empty password fields to avoid clearing them
-                if key in ['CALIBRE_PASSWORD', 'SMTP_PASSWORD'] and not value:
+                if key in ['CALIBRE_PASSWORD', 'SMTP_PASSWORD', 'TALEBOOK_PASSWORD'] and not value:
                     continue
 
-                if key in ['LOGIN_MAX_ATTEMPTS', 'SESSION_LIFETIME_DAYS', 'SMTP_PORT', 'AUDIOBOOK_CLEANUP_DAYS', 'DEFAULT_TTS_SENTENCE_PAUSE', 'DEFAULT_TTS_PARAGRAPH_PAUSE'] and value is not None:
+                if key in ['LOGIN_MAX_ATTEMPTS', 'SESSION_LIFETIME_DAYS', 'SMTP_PORT', 'AUDIOBOOK_CLEANUP_DAYS', 'DEFAULT_TTS_SENTENCE_PAUSE', 'DEFAULT_TTS_PARAGRAPH_PAUSE', 'TALEBOOK_TIMEOUT'] and value is not None:
                     try:
                         current_config[key] = int(value)
                     except (ValueError, TypeError):

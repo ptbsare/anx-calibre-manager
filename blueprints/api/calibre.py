@@ -9,6 +9,7 @@ from flask_babel import gettext as _
 from contextlib import closing
 import config_manager
 from utils.auth import get_calibre_auth
+from utils.library_provider import library_request, get_provider
 from utils.text import safe_title, safe_author
 from utils.decorators import maintainer_required_api
 from utils.activity_logger import log_activity, ActivityType
@@ -218,9 +219,8 @@ def download_koreader_plugin():
     return send_from_directory('static', 'anx-calibre-manager-koreader-plugin.zip', as_attachment=True)
 
 def get_calibre_book_details(book_id):
-    config = config_manager.config
     try:
-        response = requests.get(f"{config['CALIBRE_URL']}/ajax/book/{book_id}?fields=all", auth=get_calibre_auth())
+        response = library_request('GET', f"/ajax/book/{book_id}?fields=all")
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
@@ -237,12 +237,12 @@ def download_calibre_book(book_id, download_format='mobi'):
     else:
         filename = f"{title}.{download_format}"
     
-    config = config_manager.config
     try:
-        url = f"{config['CALIBRE_URL']}/get/{download_format.lower()}/{book_id}"
-        response = requests.get(url, auth=get_calibre_auth(), stream=True)
+        response = library_request('GET', f"/get/{download_format.lower()}/{book_id}", stream=True)
         response.raise_for_status()
         return response.content, filename
     except requests.exceptions.RequestException as e:
+        from utils.library_provider import get_base_url
+        url = f"{get_base_url()}/get/{download_format.lower()}/{book_id}"
         print(f"Error downloading book {book_id} in format {download_format} from URL {url}: {e}")
         return None, None

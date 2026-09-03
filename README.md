@@ -210,6 +210,12 @@ The application is configured via environment variables.
 | `CALIBRE_PASSWORD` | Password for your Calibre server. See [Troubleshooting](#1-why-are-there-no-books-in-my-calibre-list) if you have connection issues. | `""` |
 | `CALIBRE_DEFAULT_LIBRARY_ID` | The default Calibre library ID. See [How to find my `library_id`](#4-how-do-i-find-my-library_id) for details. | `Calibre_Library` |
 | `CALIBRE_ADD_DUPLICATES` | Whether to allow uploading duplicate books. | `false` |
+| `LIBRARY_PROVIDER` | The library backend to use. Set to `calibre` (default) for a Calibre content server, or `talebook` to use a [Talebook](https://github.com/talebook/talebook) instance. | `calibre` |
+| `TALEBOOK_URL` | Base URL of your Talebook instance (e.g., `http://talebook:80`). Required when `LIBRARY_PROVIDER=talebook`. | `""` |
+| `TALEBOOK_USERNAME` | Username for Talebook HTTP Basic Auth. | `""` |
+| `TALEBOOK_PASSWORD` | Password for Talebook HTTP Basic Auth. | `""` |
+| `TALEBOOK_TIMEOUT` | Request timeout (seconds) when connecting to Talebook. | `15` |
+| `TALEBOOK_VERIFY_SSL` | Whether to verify SSL certificates for Talebook connections. Set to `false` for self-signed certificates. | `true` |
 | `DISABLE_NORMAL_USER_UPLOAD` | When set to `true`, it disables the book upload functionality for users with the 'User' role, only Admins and Maintainers can upload books. | `false` |
 | `SMTP_SERVER` | SMTP server for sending emails (e.g., for Kindle). | `""` |
 | `SMTP_PORT` | SMTP port. | `587` |
@@ -227,6 +233,36 @@ The application is configured via environment variables.
 | `DEFAULT_LLM_BASE_URL` | The base URL for the Large Language Model (LLM) API, compatible with the OpenAI API format. | `""` |
 | `DEFAULT_LLM_API_KEY` | The API key for the LLM service. | `""` |
 | `DEFAULT_LLM_MODEL` | The default model to use for the LLM service (e.g., `gpt-4`). | `""` |
+
+### Using Talebook as the Library Backend
+
+You can replace Calibre with a [Talebook](https://github.com/talebook/talebook) instance by setting `LIBRARY_PROVIDER=talebook`. When this is set, all book listing, detail, download, and cover requests are routed to your Talebook server instead of Calibre.
+
+**Example `docker-compose.yml` snippet:**
+
+```yaml
+services:
+  anx-calibre-manager:
+    environment:
+      - LIBRARY_PROVIDER=talebook
+      - TALEBOOK_URL=http://talebook:80
+      - TALEBOOK_USERNAME=your_talebook_username
+      - TALEBOOK_PASSWORD=your_talebook_password
+      - TALEBOOK_TIMEOUT=15
+      - TALEBOOK_VERIFY_SSL=true
+
+  talebook:
+    image: talebook/talebook:latest
+    container_name: talebook
+    ports:
+      - "8000:80"
+    restart: unless-stopped
+```
+
+**Notes:**
+- Existing `CALIBRE_*` settings are untouched and will be used again if you switch back to `LIBRARY_PROVIDER=calibre`.
+- Upload and metadata-edit features (which use Calibre-specific CDB APIs) remain Calibre-only.
+- `TALEBOOK_VERIFY_SSL=false` can be used for self-signed TLS certificates.
 
 ## 🔧 Troubleshooting
 
