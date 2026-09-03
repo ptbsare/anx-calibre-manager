@@ -35,15 +35,16 @@ jobs:
             PREV_TAG=$(git rev-list --max-parents=0 HEAD)
           fi
           
-          # Initialize release notes
-          echo "RELEASE_NOTES<<EOF" >> $GITHUB_OUTPUT
+          # Initialize release notes with random delimiter to avoid early termination
+          DELIMITER="EOF_$(date +%s%N)"
+          echo "RELEASE_NOTES<<$DELIMITER" >> $GITHUB_OUTPUT
           
           # Function to add section if commits exist
           add_section() {
             local title="$1"
             local emoji="$2"
             local pattern="$3"
-            local commits=$(git log -i --pretty=format:- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --grep="$pattern" 2>/dev/null)
+            local commits=$(git log -i --pretty=format:"- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --grep="$pattern" 2>/dev/null)
             
             if [ -n "$commits" ]; then
               echo "## ${emoji} ${title}" >> $GITHUB_OUTPUT
@@ -65,7 +66,7 @@ jobs:
           add_section "维护 (Maintenance)" "🔨" "^chore"
           
           # Add other changes (commits that don't match conventional patterns)
-          OTHER_COMMITS=$(git log --pretty=format:"- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --invert-grep --grep="^feat\|^fix\|^docs\|^perf\|^style\|^refactor\|^test\|^build\|^ci\|^chore" 2>/dev/null)
+          OTHER_COMMITS=$(git log -i --pretty=format:"- %s ([%h](https://github.com/${{ github.repository }}/commit/%H))" ${PREV_TAG}..HEAD --invert-grep --grep="^feat\|^fix\|^docs\|^perf\|^style\|^refactor\|^test\|^build\|^ci\|^chore" 2>/dev/null)
           if [ -n "$OTHER_COMMITS" ]; then
             echo "## 📦 其他变更 (Other Changes)" >> $GITHUB_OUTPUT
             echo "$OTHER_COMMITS" >> $GITHUB_OUTPUT
@@ -75,7 +76,7 @@ jobs:
           # Add footer
           echo "---" >> $GITHUB_OUTPUT
           echo "**完整变更日志**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "$DELIMITER" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
