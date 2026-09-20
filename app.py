@@ -1,6 +1,7 @@
 import logging
 import os
 import sys
+import posixpath
 import bcrypt
 from flask import Flask, g, redirect, url_for, request, session
 from logging.handlers import RotatingFileHandler
@@ -86,14 +87,22 @@ class AnxDomainController(BaseDomainController):
             return False
 
         path_info = environ.get('PATH_INFO', '')
-        path_parts = path_info.strip('/').split('/')
+        # Normalize the path to prevent traversal attacks (e.g., /user1/../user2/...)
+        normalized_path = posixpath.normpath(path_info)
+        path_parts = normalized_path.strip('/').split('/')
         
         if not path_parts or path_parts[0] != user_name:
             logging.warning(f"WebDAV auth failed: user '{user_name}' attempted to access path '{path_info}'.")
             return False
         
-        # 移除了认证成功的日志，减少频繁输出
+        # Double-check: ensure the resolved path is within the user's own directory
         webdav_root = self.wsgidav_app.config["provider_mapping"]["/"].root_folder_path
+        resolved_user_dir = os.path.normpath(os.path.join(webdav_root, user_name))
+        resolved_path = os.path.normpath(os.path.join(webdav_root, *path_parts))
+        if not resolved_path.startswith(resolved_user_dir + os.sep) and resolved_path != resolved_user_dir:
+            logging.warning(f"WebDAV auth failed: user '{user_name}' path traversal attempt detected. Original: '{path_info}', Normalized: '{normalized_path}'.")
+            return False
+        
         user_dir = os.path.join(webdav_root, user_name)
         if not os.path.exists(user_dir):
             os.makedirs(user_dir)
