@@ -163,7 +163,7 @@ def global_settings_api():
         # Handle checkbox boolean values - ensure they are properly converted
         # These checkboxes send boolean values from frontend, but we need to handle both
         # boolean and string 'true'/'false' for compatibility
-        for checkbox_field in ['CALIBRE_ADD_DUPLICATES', 'DISABLE_NORMAL_USER_UPLOAD', 'REQUIRE_INVITE_CODE', 'ENABLE_ACTIVITY_LOG']:
+        for checkbox_field in ['CALIBRE_ADD_DUPLICATES', 'DISABLE_NORMAL_USER_UPLOAD', 'REQUIRE_INVITE_CODE', 'ENABLE_ACTIVITY_LOG', 'TALEBOOK_VERIFY_SSL']:
             if checkbox_field in data:
                 value = data[checkbox_field]
                 # Convert to boolean: handle both boolean type and string 'true'
