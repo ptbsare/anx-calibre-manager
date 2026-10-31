@@ -22,4 +22,4 @@ openai==1.109.0
 ebookmeta==1.2.11
 Pillow==12.0.0
 mobi_header==0.0.4
-pypdf==6.21.2
+pypdf==6.21.4
