@@ -14,11 +14,20 @@ services:
       - TZ=Asia/Shanghai
       - GUNICORN_WORKERS=2 # 可选：自定义 Gunicorn worker 进程数量
       - SECRET_KEY=your_super_secret_key # 请务必修改此项
+      # --- Library Provider (calibre | talebook) ---
+      - LIBRARY_PROVIDER=calibre # Set to 'talebook' to use Talebook as the book backend
+      # --- Calibre Settings (used when LIBRARY_PROVIDER=calibre) ---
       - CALIBRE_URL=http://your-calibre-server-ip:8080
       - CALIBRE_USERNAME=your_calibre_username
       - CALIBRE_PASSWORD=your_calibre_password
       - CALIBRE_DEFAULT_LIBRARY_ID=Calibre_Library # 可选：Calibre 默认书库 ID
       - CALIBRE_ADD_DUPLICATES=false # 可选：是否允许上传重复书籍
+      # --- Talebook Settings (used when LIBRARY_PROVIDER=talebook) ---
+      # - TALEBOOK_URL=http://talebook:80
+      # - TALEBOOK_USERNAME=your_talebook_username
+      # - TALEBOOK_PASSWORD=your_talebook_password
+      # - TALEBOOK_TIMEOUT=15
+      # - TALEBOOK_VERIFY_SSL=true
       - REQUIRE_INVITE_CODE=true # 可选：默认需要邀请码注册，设置为 false 则禁用
       - SMTP_SERVER=
       - SMTP_PORT=587
@@ -35,3 +44,13 @@ services:
       - DEFAULT_OPENAI_API_BASE_URL=https://api.openai.com/v1 # Custom base URL for OpenAI-compatible APIs
       - DEFAULT_OPENAI_API_MODEL=tts-1 # OpenAI model for TTS
     restart: unless-stopped
+
+  # --- Optional: Talebook service ---
+  # Uncomment the section below to run Talebook alongside anx-calibre-manager.
+  # Set LIBRARY_PROVIDER=talebook and TALEBOOK_URL=http://talebook:80 above to connect.
+  # talebook:
+  #   image: talebook/talebook:latest
+  #   container_name: talebook
+  #   ports:
+  #     - "8000:80"
+  #   restart: unless-stopped

@@ -16,22 +16,23 @@ from utils.text import safe_title, safe_author
 from utils.auth import get_calibre_auth
 from utils.covers import get_calibre_cover_data
 from utils.decorators import login_required
+from utils.library_provider import library_request, get_base_url, get_provider
 
 main_bp = Blueprint('main', __name__)
 
 def get_calibre_books(search_query="", page=1, page_size=20):
     config = config_manager.config
-    full_url = config.get('CALIBRE_URL', '')
+    base_url = get_base_url()
+    full_url = base_url
     try:
         library_id = config.get('CALIBRE_DEFAULT_LIBRARY_ID', 'Calibre_Library')
         offset = (page - 1) * page_size
         search_params = { 'query': search_query, 'num': page_size, 'offset': offset, 'library_id': library_id, 'sort': 'id', 'sort_order': 'desc' }
         headers = {'User-Agent': 'Mozilla/5.0'}
         
-        base_url = f"{config['CALIBRE_URL']}/ajax/search"
-        full_url = f"{base_url}?{urlencode(search_params)}"
+        full_url = f"{base_url}/ajax/search?{urlencode(search_params)}"
 
-        search_response = requests.get(base_url, params=search_params, auth=get_calibre_auth(), headers=headers)
+        search_response = library_request('GET', '/ajax/search', params=search_params, headers=headers)
         search_response.raise_for_status()
         search_data = search_response.json()
         book_ids = search_data.get('book_ids', [])
@@ -44,7 +45,7 @@ def get_calibre_books(search_query="", page=1, page_size=20):
             if not chunk: continue
             requested_fields = 'all'
             books_params = {'ids': ",".join(map(str, chunk)), 'library_id': library_id, 'fields': requested_fields}
-            books_response = requests.get(f"{config['CALIBRE_URL']}/ajax/books", params=books_params, auth=get_calibre_auth(), headers=headers)
+            books_response = library_request('GET', '/ajax/books', params=books_params, headers=headers)
             books_response.raise_for_status()
             books_data.update(books_response.json())
 
@@ -97,7 +98,6 @@ def get_calibre_books(search_query="", page=1, page_size=20):
         print(f"Error getting Calibre books: {e}")
         url_from_req = e.request.url if e.request else full_url
         return [], 0, {'code': 'REQUEST_EXCEPTION', 'message': str(e), 'calibre_url': url_from_req}
-
 def format_reading_time(seconds):
     if not seconds or seconds == 0:
         return _("0 minutes")
