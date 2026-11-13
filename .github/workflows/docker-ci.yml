@@ -18,6 +18,11 @@ jobs:
     strategy:
       matrix:
         build_type: [standard, aio]
+        include:
+          - build_type: standard
+            flavor_latest: "auto"
+          - build_type: aio
+            flavor_latest: "false"
 
     steps:
       - name: Checkout repository
@@ -57,6 +62,8 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: ghcr.io/${{ github.repository }}
+          flavor: |
+            latest=${{ matrix.flavor_latest }}
           tags: |
             # on push to main branch, tag with beta or aio-beta
             type=raw,value=${{ matrix.build_type == 'aio' && 'aio-beta' || 'beta' }},enable=${{ github.ref == 'refs/heads/main' }}
