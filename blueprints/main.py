@@ -14,6 +14,7 @@ from database import get_db
 from anx_library import get_anx_books
 from utils.text import safe_title, safe_author
 from utils.auth import get_calibre_auth
+from utils.anx_cover_path import is_anx_cover_file
 from utils.covers import get_calibre_cover_data
 from utils.decorators import login_required
 
@@ -230,6 +231,8 @@ def anx_cover(cover_path):
     
     safe_username = os.path.basename(g.user.username)
     full_data_dir = os.path.join(webdav_root, safe_username, 'anx', 'data')
+    if not is_anx_cover_file(full_data_dir, cover_path):
+        return redirect("https://via.placeholder.com/150x220.png?text=Cover+Error")
     return send_from_directory(full_data_dir, cover_path)
 
 @main_bp.route('/anx_cover_public/<username>/<path:cover_path>')
@@ -248,8 +251,8 @@ def anx_cover_public(username, cover_path):
 
     safe_username = os.path.basename(user['username'])
     full_data_dir = os.path.join(webdav_root, safe_username, 'anx', 'data')
-    
-    if not os.path.exists(os.path.join(full_data_dir, cover_path)):
+
+    if not is_anx_cover_file(full_data_dir, cover_path):
         return redirect("https://via.placeholder.com/150x220.png?text=Cover+Error")
 
     return send_from_directory(full_data_dir, cover_path)
