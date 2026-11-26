@@ -3,7 +3,7 @@
 import os
 import posixpath
 
-COVER_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.avif'}
+COVER_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.avif', '.tiff', '.tif', '.heic', '.heif'}
 
 
 def is_anx_cover_relpath(cover_path: str) -> bool:
