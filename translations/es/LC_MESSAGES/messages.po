@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-27 12:08+0800\n"
+"POT-Creation-Date: 2026-11-27 12:37+0800\n"
 "PO-Revision-Date: 2025-08-28 19:49+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: blueprints/auth.py:61
 #, python-format
 msgid "Account is locked. Please try again in %(minutes)s minutes."
-msgstr "La cuenta está bloqueada. Inténtalo de nuevo en %(minutes)s minutos."
+msgstr ""
 "La cuenta está bloqueada. Por favor, inténtalo de nuevo en %(minutes)s "
 "minutos."
 
@@ -48,14 +48,14 @@ msgstr "El código de autenticación de dos factores es incorrecto."
 
 #: blueprints/auth.py:137
 msgid "Too many failed login attempts. Account locked for 30 minutes."
-msgstr "Demasiados intentos de inicio de sesión fallidos. Cuenta bloqueada durante 30 minutos."
+msgstr ""
 "Demasiados intentos de inicio de sesión fallidos. Cuenta bloqueada "
 "durante 30 minutos."
 
 #: blueprints/auth.py:157
 #, python-format
 msgid "Username or password is incorrect. %(remaining)s attempt(s) remaining."
-msgstr "El nombre de usuario o la contraseña son incorrectos. Quedan %(remaining)s intento(s)."
+msgstr ""
 "El nombre de usuario o la contraseña son incorrectos. Quedan "
 "%(remaining)s intento(s)."
 
@@ -282,7 +282,7 @@ msgstr "No se puede descargar el libro."
 
 #: blueprints/api/books.py:217
 msgid "Please configure your Kindle email in user settings first."
-msgstr "Primero configura tu correo de Kindle en la configuración de usuario."
+msgstr ""
 "Por favor, configura tu correo electrónico de Kindle en los ajustes de "
 "usuario primero."
 
@@ -564,7 +564,7 @@ msgstr "No se encontró historial para este libro."
 
 #: blueprints/api/llm.py:179
 msgid "MCP module is not available, cannot process book content."
-msgstr "El módulo MCP no está disponible, no se puede procesar el contenido del libro."
+msgstr ""
 "El módulo MCP no está disponible, no se puede procesar el contenido del "
 "libro."
 
@@ -653,7 +653,7 @@ msgstr ""
 #: blueprints/api/llm.py:252 blueprints/api/llm.py:327
 #: static/js/page/translations.js:87
 msgid "Please provide a comprehensive summary and a profound review of this book."
-msgstr "Proporciona un resumen completo y una reseña profunda de este libro."
+msgstr ""
 "Por favor, proporcione un resumen completo y una reseña profunda de este "
 "libro."
 
@@ -936,7 +936,7 @@ msgstr "Error al restablecer los intentos de inicio de sesión"
 #: blueprints/api/user_activities.py:434
 #, python-format
 msgid "Administrator %(admin)s deleted all activity logs for user: %(username)s"
-msgstr "El administrador %(admin)s eliminó todos los registros de actividad del usuario: %(username)s"
+msgstr ""
 "El administrador %(admin)s eliminó todos los registros de actividad del "
 "usuario: %(username)s"
 
@@ -952,13 +952,13 @@ msgstr "Error al eliminar las actividades del usuario"
 #: blueprints/api/user_activities.py:460
 #, python-format
 msgid "Administrator %(admin)s deleted all user activity logs"
-msgstr "El administrador %(admin)s eliminó todos los registros de actividad de los usuarios"
+msgstr ""
 "El administrador %(admin)s eliminó todos los registros de actividad de "
 "los usuarios"
 
 #: blueprints/api/user_activities.py:463
 msgid "Successfully deleted all user activity logs"
-msgstr "Se eliminaron correctamente todos los registros de actividad de los usuarios"
+msgstr ""
 "Se eliminaron correctamente todos los registros de actividad de los "
 "usuarios"
 
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: static/js/page/translations.js:28
 msgid "Are you sure you want to delete this book? This action cannot be undone."
-msgstr "¿Seguro que quieres eliminar este libro? Esta acción no se puede deshacer."
+msgstr ""
 "¿Estás seguro de que quieres eliminar este libro? Esta acción no se puede"
 " deshacer."
 
@@ -1230,7 +1230,7 @@ msgstr "¡Todos los libros se han subido correctamente!"
 
 #: static/js/page/translations.js:38
 msgid "Some files failed to upload. Please check the progress details."
-msgstr "Algunos archivos no se pudieron subir. Revisa los detalles del progreso."
+msgstr ""
 "Algunos archivos no se han podido subir. Por favor, comprueba los "
 "detalles del progreso."
 
@@ -1818,7 +1818,7 @@ msgstr "Ocurrió un error"
 
 #: static/js/settings/common.js:72
 msgid "Please enter a test recipient email address."
-msgstr "Introduce una dirección de correo del destinatario de prueba."
+msgstr ""
 "Por favor, introduce una dirección de correo electrónico de destinatario "
 "de prueba."
 
@@ -2217,7 +2217,7 @@ msgstr "¿Estás seguro de que quieres desbloquear esta cuenta de usuario?"
 
 #: static/js/settings/user_activities.js:756
 msgid "Are you sure you want to reset failed login attempts for this user?"
-msgstr "¿Seguro que quieres restablecer los intentos de inicio de sesión fallidos de este usuario?"
+msgstr ""
 "¿Estás seguro de que quieres restablecer los intentos de inicio de sesión"
 " fallidos para este usuario?"
 
@@ -2567,7 +2567,7 @@ msgstr "Código de invitación"
 
 #: templates/register.html:28
 msgid "Please enter the invite code provided by an administrator"
-msgstr "Introduce el código de invitación proporcionado por un administrador"
+msgstr ""
 "Por favor, introduce el código de invitación proporcionado por un "
 "administrador"
 
@@ -2894,7 +2894,7 @@ msgstr "Duración de la sesión (días)"
 
 #: templates/settings/settings_global.html:94
 msgid "The number of days a user's session remains valid after logging in."
-msgstr "El número de días que la sesión de un usuario sigue siendo válida después de iniciar sesión."
+msgstr ""
 "El número de días que la sesión de un usuario permanece válida después de"
 " iniciar sesión."
 
@@ -2931,7 +2931,7 @@ msgstr "Bandeja de entrada de prueba"
 
 #: templates/settings/settings_global.html:109
 msgid "Enter an email address to receive a test email"
-msgstr "Introduce una dirección de correo para recibir un correo de prueba"
+msgstr ""
 "Introduce una dirección de correo electrónico para recibir un correo de "
 "prueba"
 
@@ -2981,7 +2981,7 @@ msgstr "Dejar en blanco para que no caduque"
 
 #: templates/settings/settings_invite_code.html:18
 msgid "Number of hours after which this invite code will expire (optional)"
-msgstr "Número de horas tras las cuales caducará este código de invitación (opcional)"
+msgstr ""
 "Número de horas después de las cuales caducará este código de invitación "
 "(opcional)"
 
@@ -3033,7 +3033,7 @@ msgstr "Paso 1: Configurar el almacenamiento en la nube WebDAV"
 
 #: templates/settings/settings_koreader.html:7
 msgid "In KOReader, go to `Cloud storage` -> `Add new cloud storage`."
-msgstr "En KOReader, ve a `Almacenamiento en la nube` -> `Añadir nuevo almacenamiento en la nube`."
+msgstr ""
 "En KOReader, ve a `Almacenamiento en la nube` -> `Añadir nuevo "
 "almacenamiento en la nube`."
 
@@ -3221,7 +3221,7 @@ msgstr "Encuentra libros sobre programación en Python."
 
 #: templates/settings/settings_mcp.html:26
 msgid "Search for science fiction books by Isaac Asimov published after 1950."
-msgstr "Busca libros de ciencia ficción de Isaac Asimov publicados después de 1950."
+msgstr ""
 "Busca libros de ciencia ficción de Isaac Asimov publicados después de "
 "1950."
 
@@ -3231,7 +3231,7 @@ msgstr "Gestión de Libros"
 
 #: templates/settings/settings_mcp.html:32
 msgid "What are the 5 most recently added books? Send the first one to my Kindle."
-msgstr "¿Cuáles son los 5 libros añadidos más recientemente? Envía el primero a mi Kindle."
+msgstr ""
 "¿Cuáles son los 5 libros añadidos más recientemente? Envía el primero a "
 "mi Kindle."
 
@@ -3241,7 +3241,7 @@ msgstr "Empuja el libro 'Dune' a mi lector Anx."
 
 #: templates/settings/settings_mcp.html:38
 msgid "Upload the book 'The Three-Body Problem' from my Anx library to Calibre."
-msgstr "Sube el libro «El problema de los tres cuerpos» desde mi biblioteca Anx a Calibre."
+msgstr ""
 "Sube el libro 'El problema de los tres cuerpos' de mi biblioteca Anx a "
 "Calibre."
 
@@ -3349,7 +3349,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:85
 msgid "Push a Calibre book to the user's Anx library. Parameters: `book_id` (int)"
-msgstr "Envía un libro de Calibre a la biblioteca Anx del usuario. Parámetros: `book_id` (int)"
+msgstr ""
 "Enviar un libro de Calibre a la biblioteca Anx del usuario. Parámetros: "
 "`book_id` (int)"
 
@@ -3412,7 +3412,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:93
 msgid "Get audiobook generation status by task ID. Parameters: `task_id` (str)"
-msgstr "Obtiene el estado de generación del audiolibro por ID de tarea. Parámetros: `task_id` (str)"
+msgstr ""
 "Obtener el estado de la generación de un audiolibro por ID de tarea. "
 "Parámetros: `task_id` (str)"
 
@@ -3670,7 +3670,7 @@ msgstr "Seleccionar o escribir una voz"
 
 #: templates/settings/settings_user_settings.html:66
 msgid "The voice to use for generation. e.g., zh-CN-YunjianNeural for Edge TTS."
-msgstr "La voz que se usará para la generación. p. ej., zh-CN-YunjianNeural para Edge TTS."
+msgstr ""
 "La voz que se utilizará para la generación. Por ejemplo, zh-CN-"
 "YunjianNeural para Edge TTS."
 
@@ -3690,7 +3690,7 @@ msgstr "URL base"
 
 #: templates/settings/settings_user_settings.html:76
 msgid "Custom base URL for the API (for proxies or self-hosted models)."
-msgstr "URL base personalizada para la API (para proxies o modelos autohospedados)."
+msgstr ""
 "URL base personalizada para la API (para proxies o modelos "
 "autohospedados)."
 
@@ -3701,7 +3701,7 @@ msgstr "Modelo"
 
 #: templates/settings/settings_user_settings.html:81
 msgid "The specific model to use, e.g., tts-1-hd (if supported by the provider)."
-msgstr "El modelo específico que se usará, p. ej., tts-1-hd (si el proveedor lo admite)."
+msgstr ""
 "El modelo específico que se utilizará, por ejemplo, tts-1-hd (si lo "
 "admite el proveedor)."
 
@@ -3761,7 +3761,7 @@ msgstr "El proveedor de modelos de lenguaje grandes a utilizar para MCP."
 
 #: templates/settings/settings_user_settings.html:130
 msgid "Custom base URL for the API (e.g., for proxies or self-hosted models)."
-msgstr "URL base personalizada para la API (p. ej., para proxies o modelos autohospedados)."
+msgstr ""
 "URL base personalizada para la API (por ejemplo, para proxies o modelos "
 "autohospedados)."
 
@@ -3811,7 +3811,7 @@ msgstr "Autenticación de dos factores (2FA)"
 
 #: templates/settings/settings_user_settings.html:165
 msgid "Please use your authenticator app to scan this QR code:"
-msgstr "Usa tu aplicación de autenticación para escanear este código QR:"
+msgstr ""
 "Por favor, usa tu aplicación de autenticación para escanear este código "
 "QR:"
 

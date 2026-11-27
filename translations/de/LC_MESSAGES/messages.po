@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-27 12:08+0800\n"
+"POT-Creation-Date: 2026-11-27 12:37+0800\n"
 "PO-Revision-Date: 2025-08-28 19:49+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -51,7 +51,7 @@ msgstr "Zu viele fehlgeschlagene Anmeldeversuche. Konto für 30 Minuten gesperrt
 #: blueprints/auth.py:157
 #, python-format
 msgid "Username or password is incorrect. %(remaining)s attempt(s) remaining."
-msgstr "Benutzername oder Passwort ist falsch. %(remaining)s Versuch(e) verbleibend."
+msgstr ""
 "Benutzername oder Passwort ist falsch. Noch %(remaining)s Versuch(e) "
 "verbleibend."
 
@@ -278,7 +278,7 @@ msgstr "Buch kann nicht heruntergeladen werden."
 
 #: blueprints/api/books.py:217
 msgid "Please configure your Kindle email in user settings first."
-msgstr "Bitte konfigurieren Sie zuerst Ihre Kindle-E-Mail in den Benutzereinstellungen."
+msgstr ""
 "Bitte konfigurieren Sie zuerst Ihre Kindle-E-Mail in den "
 "Benutzereinstellungen."
 
@@ -648,7 +648,7 @@ msgstr ""
 #: blueprints/api/llm.py:252 blueprints/api/llm.py:327
 #: static/js/page/translations.js:87
 msgid "Please provide a comprehensive summary and a profound review of this book."
-msgstr "Bitte liefern Sie eine umfassende Zusammenfassung und eine tiefgehende Rezension dieses Buches."
+msgstr ""
 "Bitte geben Sie eine umfassende Zusammenfassung und eine tiefgründige "
 "Rezension dieses Buches ab."
 
@@ -932,7 +932,7 @@ msgstr "Fehler beim Zurücksetzen der Anmeldeversuche"
 #: blueprints/api/user_activities.py:434
 #, python-format
 msgid "Administrator %(admin)s deleted all activity logs for user: %(username)s"
-msgstr "Administrator %(admin)s hat alle Aktivitätsprotokolle für Benutzer %(username)s gelöscht"
+msgstr ""
 "Administrator %(admin)s hat alle Aktivitätsprotokolle für Benutzer "
 "%(username)s gelöscht"
 
@@ -1179,7 +1179,7 @@ msgstr ""
 
 #: static/js/page/translations.js:28
 msgid "Are you sure you want to delete this book? This action cannot be undone."
-msgstr "Möchten Sie dieses Buch wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden."
+msgstr ""
 "Möchten Sie dieses Buch wirklich löschen? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
 
@@ -1222,7 +1222,7 @@ msgstr "Alle Bücher erfolgreich hochgeladen!"
 
 #: static/js/page/translations.js:38
 msgid "Some files failed to upload. Please check the progress details."
-msgstr "Einige Dateien konnten nicht hochgeladen werden. Bitte prüfen Sie die Fortschrittsdetails."
+msgstr ""
 "Einige Dateien konnten nicht hochgeladen werden. Bitte überprüfen Sie die"
 " Fortschrittsdetails."
 
@@ -1686,7 +1686,7 @@ msgstr "Alle Aktivitäten löschen"
 
 #: static/js/page/translations.js:161
 msgid "Are you sure you want to delete all activities for user"
-msgstr "Möchten Sie wirklich alle Aktivitäten für Benutzer löschen"
+msgstr ""
 "Sind Sie sicher, dass Sie alle Aktivitäten für den Benutzer löschen "
 "möchten?"
 
@@ -2209,7 +2209,7 @@ msgstr "Möchten Sie dieses Benutzerkonto wirklich entsperren?"
 
 #: static/js/settings/user_activities.js:756
 msgid "Are you sure you want to reset failed login attempts for this user?"
-msgstr "Möchten Sie die fehlgeschlagenen Anmeldeversuche für diesen Benutzer wirklich zurücksetzen?"
+msgstr ""
 "Möchten Sie die fehlgeschlagenen Anmeldeversuche für diesen Benutzer "
 "wirklich zurücksetzen?"
 
@@ -2883,7 +2883,7 @@ msgstr "Sitzungslebensdauer (Tage)"
 
 #: templates/settings/settings_global.html:94
 msgid "The number of days a user's session remains valid after logging in."
-msgstr "Die Anzahl der Tage, die eine Benutzersitzung nach der Anmeldung gültig bleibt."
+msgstr ""
 "Die Anzahl der Tage, die die Sitzung eines Benutzers nach der Anmeldung "
 "gültig bleibt."
 
@@ -3018,7 +3018,7 @@ msgstr "Schritt 1: WebDAV-Cloud-Speicher konfigurieren"
 
 #: templates/settings/settings_koreader.html:7
 msgid "In KOReader, go to `Cloud storage` -> `Add new cloud storage`."
-msgstr "Gehen Sie in KOReader zu `Cloud-Speicher` -> `Neuen Cloud-Speicher hinzufügen`."
+msgstr ""
 "Gehen Sie in KOReader zu `Cloud-Speicher` -> `Neuen Cloud-Speicher "
 "hinzufügen`."
 
@@ -3064,7 +3064,7 @@ msgstr "Plugin herunterladen"
 
 #: templates/settings/settings_koreader.html:21
 msgid "Click the button below to download the plugin zip file."
-msgstr "Klicken Sie auf die Schaltfläche unten, um die Plugin-Zip-Datei herunterzuladen."
+msgstr ""
 "Klicken Sie auf die Schaltfläche unten, um die Plugin-Zip-Datei "
 "herunterzuladen."
 
@@ -3183,7 +3183,7 @@ msgstr "Authentifizierung"
 
 #: templates/settings/settings_mcp.html:16
 msgid "Authenticate by appending the `?token=YOUR_TOKEN` parameter to the URL."
-msgstr "Authentifizieren Sie sich, indem Sie den Parameter `?token=YOUR_TOKEN` an die URL anhängen."
+msgstr ""
 "Authentifizieren Sie sich, indem Sie den Parameter `?token=YOUR_TOKEN` an"
 " die URL anhängen."
 
@@ -3211,7 +3211,7 @@ msgstr "Finde Bücher über Python-Programmierung."
 
 #: templates/settings/settings_mcp.html:26
 msgid "Search for science fiction books by Isaac Asimov published after 1950."
-msgstr "Suchen Sie nach Science-Fiction-Büchern von Isaac Asimov, die nach 1950 veröffentlicht wurden."
+msgstr ""
 "Suche nach Science-Fiction-Büchern von Isaac Asimov, die nach 1950 "
 "veröffentlicht wurden."
 
@@ -3221,7 +3221,7 @@ msgstr "Buchverwaltung"
 
 #: templates/settings/settings_mcp.html:32
 msgid "What are the 5 most recently added books? Send the first one to my Kindle."
-msgstr "Was sind die 5 zuletzt hinzugefügten Bücher? Senden Sie das erste an meinen Kindle."
+msgstr ""
 "Was sind die 5 zuletzt hinzugefügten Bücher? Sende das erste an meinen "
 "Kindle."
 
@@ -3231,7 +3231,7 @@ msgstr "Schiebe das Buch 'Dune' auf meinen Anx-Reader."
 
 #: templates/settings/settings_mcp.html:38
 msgid "Upload the book 'The Three-Body Problem' from my Anx library to Calibre."
-msgstr "Laden Sie das Buch „Die drei Sonnen“ aus meiner Anx-Bibliothek nach Calibre hoch."
+msgstr ""
 "Lade das Buch 'Die drei Sonnen' aus meiner Anx-Bibliothek nach Calibre "
 "hoch."
 
@@ -3337,7 +3337,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:85
 msgid "Push a Calibre book to the user's Anx library. Parameters: `book_id` (int)"
-msgstr "Überträgt ein Calibre-Buch in die Anx-Bibliothek des Benutzers. Parameter: `book_id` (int)"
+msgstr ""
 "Pushe ein Calibre-Buch in die Anx-Bibliothek des Benutzers. Parameter: "
 "`book_id` (int)"
 
@@ -3399,7 +3399,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:93
 msgid "Get audiobook generation status by task ID. Parameters: `task_id` (str)"
-msgstr "Ruft den Status der Hörbucherstellung anhand der Aufgaben-ID ab. Parameter: `task_id` (str)"
+msgstr ""
 "Hole den Status der Hörbuchgenerierung nach Aufgaben-ID. Parameter: "
 "`task_id` (str)"
 
@@ -3657,7 +3657,7 @@ msgstr "Stimme auswählen oder eingeben"
 
 #: templates/settings/settings_user_settings.html:66
 msgid "The voice to use for generation. e.g., zh-CN-YunjianNeural for Edge TTS."
-msgstr "Die für die Erstellung zu verwendende Stimme. z. B. zh-CN-YunjianNeural für Edge TTS."
+msgstr ""
 "Die für die Generierung zu verwendende Stimme. z.B. zh-CN-YunjianNeural "
 "für Edge TTS."
 
@@ -3677,7 +3677,7 @@ msgstr "Basis-URL"
 
 #: templates/settings/settings_user_settings.html:76
 msgid "Custom base URL for the API (for proxies or self-hosted models)."
-msgstr "Benutzerdefinierte Basis-URL für die API (für Proxys oder selbst gehostete Modelle)."
+msgstr ""
 "Benutzerdefinierte Basis-URL für die API (für Proxys oder selbst "
 "gehostete Modelle)."
 
@@ -3688,7 +3688,7 @@ msgstr "Modell"
 
 #: templates/settings/settings_user_settings.html:81
 msgid "The specific model to use, e.g., tts-1-hd (if supported by the provider)."
-msgstr "Das zu verwendende spezifische Modell, z. B. tts-1-hd (falls vom Anbieter unterstützt)."
+msgstr ""
 "Das zu verwendende spezifische Modell, z.B. tts-1-hd (falls vom Anbieter "
 "unterstützt)."
 
@@ -3748,7 +3748,7 @@ msgstr "Der für MCP zu verwendende Anbieter für große Sprachmodelle."
 
 #: templates/settings/settings_user_settings.html:130
 msgid "Custom base URL for the API (e.g., for proxies or self-hosted models)."
-msgstr "Benutzerdefinierte Basis-URL für die API (z. B. für Proxys oder selbst gehostete Modelle)."
+msgstr ""
 "Benutzerdefinierte Basis-URL für die API (z. B. für Proxys oder selbst "
 "gehostete Modelle)."
 

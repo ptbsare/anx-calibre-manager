@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-27 12:08+0800\n"
+"POT-Creation-Date: 2026-11-27 12:37+0800\n"
 "PO-Revision-Date: 2025-08-28 19:49+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -45,14 +45,14 @@ msgstr "Le code d'authentification à deux facteurs est incorrect."
 
 #: blueprints/auth.py:137
 msgid "Too many failed login attempts. Account locked for 30 minutes."
-msgstr "Trop de tentatives de connexion échouées. Compte verrouillé pendant 30 minutes."
+msgstr ""
 "Trop de tentatives de connexion échouées. Le compte est verrouillé "
 "pendant 30 minutes."
 
 #: blueprints/auth.py:157
 #, python-format
 msgid "Username or password is incorrect. %(remaining)s attempt(s) remaining."
-msgstr "Nom d'utilisateur ou mot de passe incorrect. %(remaining)s tentative(s) restante(s)."
+msgstr ""
 "Nom d'utilisateur ou mot de passe incorrect. %(remaining)s tentative(s) "
 "restante(s)."
 
@@ -279,7 +279,7 @@ msgstr "Impossible de télécharger le livre."
 
 #: blueprints/api/books.py:217
 msgid "Please configure your Kindle email in user settings first."
-msgstr "Veuillez d'abord configurer votre e-mail Kindle dans les paramètres utilisateur."
+msgstr ""
 "Veuillez d'abord configurer votre e-mail Kindle dans les paramètres "
 "utilisateur."
 
@@ -405,7 +405,7 @@ msgstr "Aucun fichier sélectionné pour le téléversement."
 
 #: blueprints/api/books.py:571
 msgid "`ebook-converter` tool is missing, cannot convert file."
-msgstr "L'outil `ebook-converter` est manquant, impossible de convertir le fichier."
+msgstr ""
 "L'outil `ebook-converter` est manquant, impossible de convertir le "
 "fichier."
 
@@ -563,7 +563,7 @@ msgstr "Aucun historique trouvé pour ce livre."
 
 #: blueprints/api/llm.py:179
 msgid "MCP module is not available, cannot process book content."
-msgstr "Le module MCP n'est pas disponible, impossible de traiter le contenu du livre."
+msgstr ""
 "Le module MCP n'est pas disponible, impossible de traiter le contenu du "
 "livre."
 
@@ -653,7 +653,7 @@ msgstr ""
 #: blueprints/api/llm.py:252 blueprints/api/llm.py:327
 #: static/js/page/translations.js:87
 msgid "Please provide a comprehensive summary and a profound review of this book."
-msgstr "Veuillez fournir un résumé complet et une critique approfondie de ce livre."
+msgstr ""
 "Veuillez fournir un résumé complet et une critique approfondie de ce "
 "livre."
 
@@ -725,7 +725,7 @@ msgstr "Erreur d'authentification. Veuillez vérifier votre clé API."
 
 #: blueprints/api/llm.py:374
 msgid "Invalid API endpoint. Please check your Base URL."
-msgstr "Point de terminaison d'API invalide. Veuillez vérifier votre URL de base."
+msgstr ""
 "Point de terminaison d'API non valide. Veuillez vérifier votre URL de "
 "base."
 
@@ -938,14 +938,14 @@ msgstr "Échec de la réinitialisation des tentatives de connexion"
 #: blueprints/api/user_activities.py:434
 #, python-format
 msgid "Administrator %(admin)s deleted all activity logs for user: %(username)s"
-msgstr "L'administrateur %(admin)s a supprimé tous les journaux d'activité de l'utilisateur : %(username)s"
+msgstr ""
 "L'administrateur %(admin)s a supprimé tous les journaux d'activité de "
 "l'utilisateur : %(username)s"
 
 #: blueprints/api/user_activities.py:438
 #, python-format
 msgid "Successfully deleted all activities for user %(username)s"
-msgstr "Toutes les activités de l'utilisateur %(username)s ont été supprimées avec succès"
+msgstr ""
 "Toutes les activités de l'utilisateur %(username)s ont été supprimées "
 "avec succès"
 
@@ -956,13 +956,13 @@ msgstr "Échec de la suppression des activités de l'utilisateur"
 #: blueprints/api/user_activities.py:460
 #, python-format
 msgid "Administrator %(admin)s deleted all user activity logs"
-msgstr "L'administrateur %(admin)s a supprimé tous les journaux d'activité des utilisateurs"
+msgstr ""
 "L'administrateur %(admin)s a supprimé tous les journaux d'activité des "
 "utilisateurs"
 
 #: blueprints/api/user_activities.py:463
 msgid "Successfully deleted all user activity logs"
-msgstr "Tous les journaux d'activité des utilisateurs ont été supprimés avec succès"
+msgstr ""
 "Tous les journaux d'activité des utilisateurs ont été supprimés avec "
 "succès"
 
@@ -1029,7 +1029,7 @@ msgstr "L'ID utilisateur est requis."
 #: blueprints/api/users.py:109 blueprints/api/users.py:110
 #, python-format
 msgid "Error deleting user data directory: %(error)s"
-msgstr "Erreur lors de la suppression du répertoire de données utilisateur : %(error)s"
+msgstr ""
 "Erreur lors de la suppression du répertoire de données utilisateur : "
 "%(error)s"
 
@@ -1193,7 +1193,7 @@ msgstr ""
 
 #: static/js/page/translations.js:28
 msgid "Are you sure you want to delete this book? This action cannot be undone."
-msgstr "Êtes-vous sûr de vouloir supprimer ce livre ? Cette action est irréversible."
+msgstr ""
 "Êtes-vous sûr de vouloir supprimer ce livre ? Cette action est "
 "irréversible."
 
@@ -1236,7 +1236,7 @@ msgstr "Tous les livres ont été téléversés avec succès !"
 
 #: static/js/page/translations.js:38
 msgid "Some files failed to upload. Please check the progress details."
-msgstr "Certains fichiers n'ont pas pu être téléversés. Veuillez vérifier les détails de progression."
+msgstr ""
 "Certains fichiers n'ont pas pu être téléversés. Veuillez vérifier les "
 "détails de la progression."
 
@@ -2220,7 +2220,7 @@ msgstr "Êtes-vous sûr de vouloir déverrouiller ce compte utilisateur ?"
 
 #: static/js/settings/user_activities.js:756
 msgid "Are you sure you want to reset failed login attempts for this user?"
-msgstr "Êtes-vous sûr de vouloir réinitialiser les tentatives de connexion échouées pour cet utilisateur ?"
+msgstr ""
 "Êtes-vous sûr de vouloir réinitialiser les tentatives de connexion "
 "échouées pour cet utilisateur ?"
 
@@ -2894,7 +2894,7 @@ msgstr "Durée de vie de la session (jours)"
 
 #: templates/settings/settings_global.html:94
 msgid "The number of days a user's session remains valid after logging in."
-msgstr "Le nombre de jours pendant lesquels la session d'un utilisateur reste valide après connexion."
+msgstr ""
 "Le nombre de jours pendant lesquels la session d'un utilisateur reste "
 "valide après la connexion."
 
@@ -2979,7 +2979,7 @@ msgstr "Laisser vide pour aucune expiration"
 
 #: templates/settings/settings_invite_code.html:18
 msgid "Number of hours after which this invite code will expire (optional)"
-msgstr "Nombre d'heures après lesquelles ce code d'invitation expirera (facultatif)"
+msgstr ""
 "Nombre d'heures après lesquelles ce code d'invitation expirera "
 "(facultatif)"
 
@@ -3031,7 +3031,7 @@ msgstr "Étape 1 : Configurer le stockage cloud WebDAV"
 
 #: templates/settings/settings_koreader.html:7
 msgid "In KOReader, go to `Cloud storage` -> `Add new cloud storage`."
-msgstr "Dans KOReader, allez dans `Stockage cloud` -> `Ajouter un nouveau stockage cloud`."
+msgstr ""
 "Dans KOReader, allez dans `Stockage cloud` -> `Ajouter un nouveau "
 "stockage cloud`."
 
@@ -3077,7 +3077,7 @@ msgstr "Télécharger le plugin"
 
 #: templates/settings/settings_koreader.html:21
 msgid "Click the button below to download the plugin zip file."
-msgstr "Cliquez sur le bouton ci-dessous pour télécharger le fichier zip du plugin."
+msgstr ""
 "Cliquez sur le bouton ci-dessous pour télécharger le fichier zip du "
 "plugin."
 
@@ -3222,7 +3222,7 @@ msgstr "Trouver des livres sur la programmation en Python."
 
 #: templates/settings/settings_mcp.html:26
 msgid "Search for science fiction books by Isaac Asimov published after 1950."
-msgstr "Recherchez les livres de science-fiction d'Isaac Asimov publiés après 1950."
+msgstr ""
 "Rechercher des livres de science-fiction d'Isaac Asimov publiés après "
 "1950."
 
@@ -3232,7 +3232,7 @@ msgstr "Gestion de Livres"
 
 #: templates/settings/settings_mcp.html:32
 msgid "What are the 5 most recently added books? Send the first one to my Kindle."
-msgstr "Quels sont les 5 livres les plus récemment ajoutés ? Envoyez le premier sur mon Kindle."
+msgstr ""
 "Quels sont les 5 derniers livres ajoutés ? Envoyez le premier à mon "
 "Kindle."
 
@@ -3242,7 +3242,7 @@ msgstr "Pousser le livre 'Dune' sur mon lecteur Anx."
 
 #: templates/settings/settings_mcp.html:38
 msgid "Upload the book 'The Three-Body Problem' from my Anx library to Calibre."
-msgstr "Téléversez le livre « Le Problème à trois corps » de ma bibliothèque Anx vers Calibre."
+msgstr ""
 "Téléverser le livre 'Le Problème à trois corps' de ma bibliothèque Anx "
 "vers Calibre."
 
@@ -3352,7 +3352,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:85
 msgid "Push a Calibre book to the user's Anx library. Parameters: `book_id` (int)"
-msgstr "Pousse un livre Calibre vers la bibliothèque Anx de l'utilisateur. Paramètres : `book_id` (int)"
+msgstr ""
 "Pousser un livre Calibre vers la bibliothèque Anx de l'utilisateur. "
 "Paramètres : `book_id` (int)"
 
@@ -3414,7 +3414,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:93
 msgid "Get audiobook generation status by task ID. Parameters: `task_id` (str)"
-msgstr "Obtient l'état de génération du livre audio par ID de tâche. Paramètres : `task_id` (str)"
+msgstr ""
 "Obtenir le statut de la génération d'un livre audio par ID de tâche. "
 "Paramètres : `task_id` (str)"
 
@@ -3552,7 +3552,7 @@ msgstr "Nouvel utilisateur"
 
 #: templates/settings/settings_user_management.html:13
 msgid "Leave blank to not change the existing user's password."
-msgstr "Laissez vide pour ne pas modifier le mot de passe de l'utilisateur existant."
+msgstr ""
 "Laisser vide pour ne pas modifier le mot de passe de l'utilisateur "
 "existant."
 
@@ -3676,7 +3676,7 @@ msgstr "Sélectionnez ou tapez une voix"
 
 #: templates/settings/settings_user_settings.html:66
 msgid "The voice to use for generation. e.g., zh-CN-YunjianNeural for Edge TTS."
-msgstr "La voix à utiliser pour la génération. par ex., zh-CN-YunjianNeural pour Edge TTS."
+msgstr ""
 "La voix à utiliser pour la génération. Par exemple, zh-CN-YunjianNeural "
 "pour Edge TTS."
 
@@ -3696,7 +3696,7 @@ msgstr "URL de base"
 
 #: templates/settings/settings_user_settings.html:76
 msgid "Custom base URL for the API (for proxies or self-hosted models)."
-msgstr "URL de base personnalisée pour l'API (pour les proxys ou les modèles auto-hébergés)."
+msgstr ""
 "URL de base personnalisée pour l'API (pour les proxys ou les modèles "
 "auto-hébergés)."
 
@@ -3707,7 +3707,7 @@ msgstr "Modèle"
 
 #: templates/settings/settings_user_settings.html:81
 msgid "The specific model to use, e.g., tts-1-hd (if supported by the provider)."
-msgstr "Le modèle spécifique à utiliser, par ex., tts-1-hd (si pris en charge par le fournisseur)."
+msgstr ""
 "Le modèle spécifique à utiliser, par exemple, tts-1-hd (si pris en charge"
 " par le fournisseur)."
 
@@ -3767,7 +3767,7 @@ msgstr "Le fournisseur de grand modèle de langage à utiliser pour MCP."
 
 #: templates/settings/settings_user_settings.html:130
 msgid "Custom base URL for the API (e.g., for proxies or self-hosted models)."
-msgstr "URL de base personnalisée pour l'API (par ex., pour les proxys ou les modèles auto-hébergés)."
+msgstr ""
 "URL de base personnalisée pour l'API (par ex. pour les proxys ou les "
 "modèles auto-hébergés)."
 
@@ -3793,7 +3793,7 @@ msgstr "Activer la page des statistiques de lecture"
 
 #: templates/settings/settings_user_settings.html:150
 msgid "Allows you to view your reading statistics after logging in."
-msgstr "Vous permet de consulter vos statistiques de lecture après connexion."
+msgstr ""
 "Vous permet de consulter vos statistiques de lecture après vous être "
 "connecté."
 
@@ -3819,7 +3819,7 @@ msgstr "Authentification à deux facteurs (A2F)"
 
 #: templates/settings/settings_user_settings.html:165
 msgid "Please use your authenticator app to scan this QR code:"
-msgstr "Veuillez utiliser votre application d'authentification pour scanner ce code QR :"
+msgstr ""
 "Veuillez utiliser votre application d'authentification pour scanner ce "
 "code QR :"
 
