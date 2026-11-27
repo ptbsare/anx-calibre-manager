@@ -306,13 +306,13 @@ def update_anx_book_metadata(username, book_id, data):
     db_path = dirs["db_path"] if dirs else None
     
     if not db_path or not os.path.exists(db_path):
-        return False, "Anx 数据库未找到。"
+        return False, "Anx database not found."
 
     allowed_fields = ['title', 'author', 'rating', 'description']
     update_data = {key: data[key] for key in data if key in allowed_fields}
     
     if not update_data:
-        return False, "没有提供有效数据进行更新。"
+        return False, "No valid data provided for update."
 
     update_data['update_time'] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
     set_clause = ", ".join([f"{key} = ?" for key in update_data.keys()])
@@ -326,17 +326,17 @@ def update_anx_book_metadata(username, book_id, data):
             cursor.execute(query, tuple(values))
             db.commit()
             if cursor.rowcount == 0:
-                return False, f"未找到 ID 为 {book_id} 的书籍。"
-            return True, "元数据更新成功。"
+                return False, f"Book with ID {book_id} not found."
+            return True, "Metadata updated successfully."
     except Exception as e:
         print(f"Error updating Anx database for user {username}: {e}")
-        return False, f"更新数据库时出错: {e}"
+        return False, f"Error updating database: {e}"
 
 def delete_anx_book(username, book_id):
     """Deletes a book from a user's Anx library by marking it as deleted and removing files."""
     dirs = get_anx_user_dirs(username)
     if not dirs or not os.path.exists(dirs["db_path"]):
-        return False, "Anx 数据库未找到。"
+        return False, "Anx database not found."
 
     try:
         with closing(sqlite3.connect(dirs["db_path"])) as db:
@@ -347,7 +347,7 @@ def delete_anx_book(username, book_id):
             book_files = cursor.fetchone()
             
             if not book_files:
-                return False, f"未找到 ID 为 {book_id} 的书籍。"
+                return False, f"Book with ID {book_id} not found."
 
             current_time = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
             cursor.execute("UPDATE tb_books SET is_deleted = 1, update_time = ? WHERE id = ?", (current_time, book_id))
@@ -363,10 +363,10 @@ def delete_anx_book(username, book_id):
                 if os.path.exists(cover_to_delete):
                     os.remove(cover_to_delete)
 
-            return True, "书籍已成功删除。"
+            return True, "Book deleted successfully."
     except Exception as e:
         print(f"Error deleting book {book_id} for user {username}: {e}")
-        return False, f"删除书籍时出错: {e}"
+        return False, f"Error deleting book: {e}"
 
 def add_book_to_anx_db(username, book_data, new_file_path, new_cover_path):
     """

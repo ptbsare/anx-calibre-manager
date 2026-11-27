@@ -361,10 +361,10 @@ def edit_anx_metadata_api():
 
     if success:
         log_activity(ActivityType.EDIT_METADATA, book_id=book_id, book_title=book_title, library_type='anx', success=True, detail=json.dumps(data))
-        return jsonify({'message': message})
+        return jsonify({'message': _(message)})
     else:
         log_activity(ActivityType.EDIT_METADATA, book_id=book_id, book_title=book_title, library_type='anx', success=False, failure_reason=message, detail=json.dumps(data))
-        return jsonify({'error': message}), 500
+        return jsonify({'error': _(message)}), 500
 
 def _get_processed_epub_for_anx_book(id: int, user_dict: dict):
     """
@@ -440,10 +440,10 @@ def delete_anx_book_api(book_id):
     success, message = delete_anx_book(g.user.username, book_id)
     if success:
         log_activity(ActivityType.DELETE_BOOK, book_id=book_id, book_title=book_title, library_type='anx', success=True)
-        return jsonify({'message': message})
+        return jsonify({'message': _(message)})
     else:
         log_activity(ActivityType.DELETE_BOOK, book_id=book_id, book_title=book_title, library_type='anx', success=False, failure_reason=message)
-        return jsonify({'error': message}), 500
+        return jsonify({'error': _(message)}), 500
 
 
 def _push_anx_to_calibre_logic(user_dict, book_id):
