@@ -366,7 +366,19 @@ def edit_anx_metadata_api():
         log_activity(ActivityType.EDIT_METADATA, book_id=book_id, book_title=book_title, library_type='anx', success=False, failure_reason=message, detail=json.dumps(data))
         return jsonify({'error': message}), 500
 
-def _get_processed_epub_for_anx_book(id: int, username: str):
+def _get_processed_epub_for_anx_book(id: int, user_dict: dict):
+    """
+    Get processed EPUB for an Anx library book, using user's language preference.
+    :param id: Book ID
+    :param user_dict: User dictionary containing at least 'username' and optionally 'language'
+    """
+    username = user_dict.get('username')
+    if not username:
+        return None, "USERNAME_MISSING", False
+    
+    # Extract language from user_dict, default to 'zh'
+    language = (user_dict.get('language') or 'zh').split('_')[0]
+
     book_details = get_anx_book_details(username, id, as_dict=True)
     if not book_details:
         return None, "BOOK_NOT_FOUND", False
@@ -412,7 +424,8 @@ def _get_processed_epub_for_anx_book(id: int, username: str):
         if not epub_to_process_path or not os.path.exists(epub_to_process_path):
             return None, "PROCESSING_FAILED", False
 
-        fixed_epub_path = fix_epub_for_kindle(epub_to_process_path, force_language='zh')
+        # Use user's language preference instead of hardcoded 'zh'
+        fixed_epub_path = fix_epub_for_kindle(epub_to_process_path, force_language=language)
         
         with open(fixed_epub_path, 'rb') as f:
             content_to_send = f.read()

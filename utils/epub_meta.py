@@ -103,7 +103,7 @@ def get_metadata(library_type: str, book_id: int, user_dict: Dict[str, Any]) -> 
         language = (user_dict.get('language') or 'zh').split('_')[0]
         epub_content, _unused1, _unused2 = _get_processed_epub_for_book(book_id, user_dict, language=language)
     elif library_type == 'anx':
-        epub_content, _unused1, _unused2 = _get_processed_epub_for_anx_book(book_id, user_dict['username'])
+        epub_content, _unused1, _unused2 = _get_processed_epub_for_anx_book(book_id, user_dict)
 
     if epub_content:
         with tempfile.NamedTemporaryFile(suffix='.epub', delete=True) as temp_file:

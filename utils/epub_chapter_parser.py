@@ -252,7 +252,7 @@ def get_parsed_chapters(library_type: str, book_id: int, user_dict: Dict[str, An
         language = (user_dict.get('language') or 'zh').split('_')[0]
         epub_content, epub_filename, _ = _get_processed_epub_for_book(book_id, user_dict, language=language)
     elif library_type == 'anx':
-        epub_content, epub_filename, _ = _get_processed_epub_for_anx_book(book_id, user_dict['username'])
+        epub_content, epub_filename, _ = _get_processed_epub_for_anx_book(book_id, user_dict)
     
     if not epub_content or epub_filename is None:
         raise ValueError(f"Failed to get processed EPUB for {library_type}-{book_id}. Reason: {epub_filename or 'Unknown'}")
