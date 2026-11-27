@@ -361,7 +361,7 @@ def edit_anx_metadata_api():
 
     if success:
         log_activity(ActivityType.EDIT_METADATA, book_id=book_id, book_title=book_title, library_type='anx', success=True, detail=json.dumps(data))
-        return jsonify({'message': _(message)})
+        return jsonify({'message': _('Metadata updated successfully.')})
     else:
         log_activity(ActivityType.EDIT_METADATA, book_id=book_id, book_title=book_title, library_type='anx', success=False, failure_reason=message, detail=json.dumps(data))
         return jsonify({'error': _(message)}), 500
@@ -440,7 +440,7 @@ def delete_anx_book_api(book_id):
     success, message = delete_anx_book(g.user.username, book_id)
     if success:
         log_activity(ActivityType.DELETE_BOOK, book_id=book_id, book_title=book_title, library_type='anx', success=True)
-        return jsonify({'message': _(message)})
+        return jsonify({'message': _('Book deleted successfully.')})
     else:
         log_activity(ActivityType.DELETE_BOOK, book_id=book_id, book_title=book_title, library_type='anx', success=False, failure_reason=message)
         return jsonify({'error': _(message)}), 500

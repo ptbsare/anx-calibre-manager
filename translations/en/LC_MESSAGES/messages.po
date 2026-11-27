@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-23 19:26+0800\n"
+"POT-Creation-Date: 2026-11-27 12:08+0800\n"
 "PO-Revision-Date: 2025-08-28 19:49+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.19.0\n"
 
 #: blueprints/auth.py:26 blueprints/auth.py:159
 msgid "Username or password is incorrect."
@@ -118,16 +118,16 @@ msgstr "Registration successful! Please login."
 msgid "An error occurred during registration"
 msgstr "An error occurred during registration"
 
-#: blueprints/main.py:103 blueprints/stats.py:16
+#: blueprints/main.py:104 blueprints/stats.py:16
 msgid "0 minutes"
 msgstr "0 minutes"
 
-#: blueprints/main.py:107 blueprints/stats.py:20
+#: blueprints/main.py:108 blueprints/stats.py:20
 #, python-format
 msgid "%(hours)s hours %(minutes)s minutes"
 msgstr "%(hours)s hours %(minutes)s minutes"
 
-#: blueprints/main.py:108 blueprints/stats.py:21
+#: blueprints/main.py:109 blueprints/stats.py:21
 #, python-format
 msgid "%(minutes)s minutes"
 msgstr "%(minutes)s minutes"
@@ -144,7 +144,7 @@ msgstr "This user's stats page is private."
 msgid "Anx library not found for this user."
 msgstr "Anx library not found for this user."
 
-#: blueprints/api/audio_player.py:173
+#: blueprints/api/audio_player.py:179
 msgid "Progress updated"
 msgstr "Progress updated"
 
@@ -291,7 +291,7 @@ msgid "Unable to get or process the EPUB file for the book."
 msgstr "Unable to get or process the EPUB file for the book."
 
 #: blueprints/api/books.py:263 blueprints/api/books.py:347
-#: blueprints/api/books.py:689 static/js/settings/common.js:82
+#: blueprints/api/books.py:702 static/js/settings/common.js:82
 msgid "Unknown error"
 msgstr "Unknown error"
 
@@ -311,8 +311,8 @@ msgstr "No pushable format found."
 msgid "Error downloading or processing the book."
 msgstr "Error downloading or processing the book."
 
-#: blueprints/api/books.py:304 blueprints/api/books.py:454
-#: blueprints/api/books.py:539
+#: blueprints/api/books.py:304 blueprints/api/books.py:467
+#: blueprints/api/books.py:552
 msgid "User directory not configured."
 msgstr "User directory not configured."
 
@@ -329,27 +329,35 @@ msgstr ""
 msgid "Missing book ID."
 msgstr "Missing book ID."
 
-#: blueprints/api/books.py:444
+#: blueprints/api/books.py:364 blueprints/api/calibre.py:154
+msgid "Metadata updated successfully."
+msgstr "Metadata updated successfully."
+
+#: blueprints/api/books.py:443
+msgid "Book deleted successfully."
+msgstr "Book deleted successfully."
+
+#: blueprints/api/books.py:457
 #, python-format
 msgid "Anx book with ID %(book_id)s not found."
 msgstr "Anx book with ID %(book_id)s not found."
 
-#: blueprints/api/books.py:450
+#: blueprints/api/books.py:463
 #, python-format
 msgid "File path for book with ID %(book_id)s is missing."
 msgstr "File path for book with ID %(book_id)s is missing."
 
-#: blueprints/api/books.py:458
+#: blueprints/api/books.py:471
 #, python-format
 msgid "Book file not found at path: %(path)s"
 msgstr "Book file not found at path: %(path)s"
 
-#: blueprints/api/books.py:464
+#: blueprints/api/books.py:477
 #, python-format
 msgid "Failed to read book file: %(error)s"
 msgstr "Failed to read book file: %(error)s"
 
-#: blueprints/api/books.py:497
+#: blueprints/api/books.py:510
 #, python-format
 msgid ""
 "Book '%(title)s' uploaded successfully, ID: %(book_id)s (but failed to "
@@ -358,73 +366,73 @@ msgstr ""
 "Book '%(title)s' uploaded successfully, ID: %(book_id)s (but failed to "
 "update source)."
 
-#: blueprints/api/books.py:503 blueprints/api/calibre.py:74
+#: blueprints/api/books.py:516 blueprints/api/calibre.py:74
 #, python-format
 msgid "Book '%(title)s' uploaded successfully, ID: %(book_id)s."
 msgstr "Book '%(title)s' uploaded successfully, ID: %(book_id)s."
 
-#: blueprints/api/books.py:509 blueprints/api/calibre.py:76
+#: blueprints/api/books.py:522 blueprints/api/calibre.py:76
 msgid "Upload failed, book may already exist."
 msgstr "Upload failed, book may already exist."
 
-#: blueprints/api/books.py:515 blueprints/api/calibre.py:81
+#: blueprints/api/books.py:528 blueprints/api/calibre.py:81
 #, python-format
 msgid "Calibre server returned an error: %(code)s - %(text)s"
 msgstr "Calibre server returned an error: %(code)s - %(text)s"
 
-#: blueprints/api/books.py:519 blueprints/api/calibre.py:85
+#: blueprints/api/books.py:532 blueprints/api/calibre.py:85
 #: blueprints/api/calibre.py:169
 #, python-format
 msgid "Error connecting to Calibre server: %(error)s"
 msgstr "Error connecting to Calibre server: %(error)s"
 
-#: blueprints/api/books.py:532
+#: blueprints/api/books.py:545
 msgid "Username not found in user_dict."
 msgstr "Username not found in user_dict."
 
-#: blueprints/api/books.py:535
+#: blueprints/api/books.py:548
 msgid "No files were uploaded."
 msgstr "No files were uploaded."
 
-#: blueprints/api/books.py:544 blueprints/api/books.py:646
+#: blueprints/api/books.py:557 blueprints/api/books.py:659
 msgid "No files selected for uploading."
 msgstr "No files selected for uploading."
 
-#: blueprints/api/books.py:558
+#: blueprints/api/books.py:571
 msgid "`ebook-converter` tool is missing, cannot convert file."
 msgstr "`ebook-converter` tool is missing, cannot convert file."
 
-#: blueprints/api/books.py:568
+#: blueprints/api/books.py:581
 #, python-format
 msgid "Conversion failed: %(details)s"
 msgstr "Conversion failed: %(details)s"
 
-#: blueprints/api/books.py:613
+#: blueprints/api/books.py:626
 #, python-format
 msgid "Book '%(title)s' already exists in the library."
 msgstr "Book '%(title)s' already exists in the library."
 
-#: blueprints/api/books.py:622
+#: blueprints/api/books.py:635
 #, python-format
 msgid "Reactivated previously deleted book '%(title)s'."
 msgstr "Reactivated previously deleted book '%(title)s'."
 
-#: blueprints/api/books.py:624
+#: blueprints/api/books.py:637
 #, python-format
 msgid "Book '%(title)s' uploaded successfully."
 msgstr "Book '%(title)s' uploaded successfully."
 
-#: blueprints/api/books.py:630
+#: blueprints/api/books.py:643
 #, python-format
 msgid "Failed to process '%(filename)s': %(error)s"
 msgstr "Failed to process '%(filename)s': %(error)s"
 
-#: blueprints/api/books.py:637 blueprints/api/books.py:678
+#: blueprints/api/books.py:650 blueprints/api/books.py:691
 #: blueprints/api/calibre.py:22
 msgid "You do not have permission to upload books."
 msgstr "You do not have permission to upload books."
 
-#: blueprints/api/books.py:642
+#: blueprints/api/books.py:655
 msgid "No file part in the request."
 msgstr "No file part in the request."
 
@@ -447,10 +455,6 @@ msgstr "You do not have permission to edit this book."
 #: blueprints/api/calibre.py:139
 msgid "No fields provided to update."
 msgstr "No fields provided to update."
-
-#: blueprints/api/calibre.py:154
-msgid "Metadata updated successfully."
-msgstr "Metadata updated successfully."
 
 #: blueprints/api/calibre.py:156
 msgid "Calibre returned an unknown response."
@@ -3778,5 +3782,4 @@ msgstr "Administrator permission required."
 #: utils/decorators.py:37
 msgid "Authentication required."
 msgstr "Authentication required."
-
 

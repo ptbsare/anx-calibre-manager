@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-10-23 19:26+0800\n"
+"POT-Creation-Date: 2026-11-27 12:08+0800\n"
 "PO-Revision-Date: 2025-08-28 19:49+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.19.0\n"
 
 #: blueprints/auth.py:26 blueprints/auth.py:159
 msgid "Username or password is incorrect."
@@ -34,7 +34,7 @@ msgstr ""
 #: blueprints/auth.py:61
 #, python-format
 msgid "Account is locked. Please try again in %(minutes)s minutes."
-msgstr ""
+msgstr "La cuenta está bloqueada. Inténtalo de nuevo en %(minutes)s minutos."
 "La cuenta está bloqueada. Por favor, inténtalo de nuevo en %(minutes)s "
 "minutos."
 
@@ -48,14 +48,14 @@ msgstr "El código de autenticación de dos factores es incorrecto."
 
 #: blueprints/auth.py:137
 msgid "Too many failed login attempts. Account locked for 30 minutes."
-msgstr ""
+msgstr "Demasiados intentos de inicio de sesión fallidos. Cuenta bloqueada durante 30 minutos."
 "Demasiados intentos de inicio de sesión fallidos. Cuenta bloqueada "
 "durante 30 minutos."
 
 #: blueprints/auth.py:157
 #, python-format
 msgid "Username or password is incorrect. %(remaining)s attempt(s) remaining."
-msgstr ""
+msgstr "El nombre de usuario o la contraseña son incorrectos. Quedan %(remaining)s intento(s)."
 "El nombre de usuario o la contraseña son incorrectos. Quedan "
 "%(remaining)s intento(s)."
 
@@ -124,16 +124,16 @@ msgstr "¡Registro exitoso! Por favor, inicia sesión."
 msgid "An error occurred during registration"
 msgstr "Ocurrió un error durante el registro"
 
-#: blueprints/main.py:103 blueprints/stats.py:16
+#: blueprints/main.py:104 blueprints/stats.py:16
 msgid "0 minutes"
 msgstr "0 minutos"
 
-#: blueprints/main.py:107 blueprints/stats.py:20
+#: blueprints/main.py:108 blueprints/stats.py:20
 #, python-format
 msgid "%(hours)s hours %(minutes)s minutes"
 msgstr "%(hours)s horas %(minutes)s minutos"
 
-#: blueprints/main.py:108 blueprints/stats.py:21
+#: blueprints/main.py:109 blueprints/stats.py:21
 #, python-format
 msgid "%(minutes)s minutes"
 msgstr "%(minutes)s minutos"
@@ -150,7 +150,7 @@ msgstr "La página de estadísticas de este usuario es privada."
 msgid "Anx library not found for this user."
 msgstr "Biblioteca Anx no encontrada para este usuario."
 
-#: blueprints/api/audio_player.py:173
+#: blueprints/api/audio_player.py:179
 msgid "Progress updated"
 msgstr "Progreso actualizado"
 
@@ -282,7 +282,7 @@ msgstr "No se puede descargar el libro."
 
 #: blueprints/api/books.py:217
 msgid "Please configure your Kindle email in user settings first."
-msgstr ""
+msgstr "Primero configura tu correo de Kindle en la configuración de usuario."
 "Por favor, configura tu correo electrónico de Kindle en los ajustes de "
 "usuario primero."
 
@@ -299,7 +299,7 @@ msgid "Unable to get or process the EPUB file for the book."
 msgstr "No se puede obtener o procesar el archivo EPUB para el libro."
 
 #: blueprints/api/books.py:263 blueprints/api/books.py:347
-#: blueprints/api/books.py:689 static/js/settings/common.js:82
+#: blueprints/api/books.py:702 static/js/settings/common.js:82
 msgid "Unknown error"
 msgstr "Error desconocido"
 
@@ -319,8 +319,8 @@ msgstr "No se encontró formato para enviar."
 msgid "Error downloading or processing the book."
 msgstr "Error al descargar o procesar el libro."
 
-#: blueprints/api/books.py:304 blueprints/api/books.py:454
-#: blueprints/api/books.py:539
+#: blueprints/api/books.py:304 blueprints/api/books.py:467
+#: blueprints/api/books.py:552
 msgid "User directory not configured."
 msgstr "Directorio de usuario no configurado."
 
@@ -337,27 +337,35 @@ msgstr ""
 msgid "Missing book ID."
 msgstr "Falta el ID del libro."
 
-#: blueprints/api/books.py:444
+#: blueprints/api/books.py:364 blueprints/api/calibre.py:154
+msgid "Metadata updated successfully."
+msgstr "Metadatos actualizados correctamente."
+
+#: blueprints/api/books.py:443
+msgid "Book deleted successfully."
+msgstr "Libro eliminado con éxito."
+
+#: blueprints/api/books.py:457
 #, python-format
 msgid "Anx book with ID %(book_id)s not found."
 msgstr "Libro Anx con ID %(book_id)s no encontrado."
 
-#: blueprints/api/books.py:450
+#: blueprints/api/books.py:463
 #, python-format
 msgid "File path for book with ID %(book_id)s is missing."
 msgstr "Falta la ruta del archivo para el libro con ID %(book_id)s."
 
-#: blueprints/api/books.py:458
+#: blueprints/api/books.py:471
 #, python-format
 msgid "Book file not found at path: %(path)s"
 msgstr "Archivo de libro no encontrado en la ruta: %(path)s"
 
-#: blueprints/api/books.py:464
+#: blueprints/api/books.py:477
 #, python-format
 msgid "Failed to read book file: %(error)s"
 msgstr "Error al leer el archivo del libro: %(error)s"
 
-#: blueprints/api/books.py:497
+#: blueprints/api/books.py:510
 #, python-format
 msgid ""
 "Book '%(title)s' uploaded successfully, ID: %(book_id)s (but failed to "
@@ -366,73 +374,73 @@ msgstr ""
 "Libro '%(title)s' subido correctamente, ID: %(book_id)s (pero falló al "
 "actualizar la fuente)."
 
-#: blueprints/api/books.py:503 blueprints/api/calibre.py:74
+#: blueprints/api/books.py:516 blueprints/api/calibre.py:74
 #, python-format
 msgid "Book '%(title)s' uploaded successfully, ID: %(book_id)s."
 msgstr "Libro '%(title)s' subido correctamente, ID: %(book_id)s."
 
-#: blueprints/api/books.py:509 blueprints/api/calibre.py:76
+#: blueprints/api/books.py:522 blueprints/api/calibre.py:76
 msgid "Upload failed, book may already exist."
 msgstr "Error al subir, el libro ya puede existir."
 
-#: blueprints/api/books.py:515 blueprints/api/calibre.py:81
+#: blueprints/api/books.py:528 blueprints/api/calibre.py:81
 #, python-format
 msgid "Calibre server returned an error: %(code)s - %(text)s"
 msgstr "El servidor de Calibre devolvió un error: %(code)s - %(text)s"
 
-#: blueprints/api/books.py:519 blueprints/api/calibre.py:85
+#: blueprints/api/books.py:532 blueprints/api/calibre.py:85
 #: blueprints/api/calibre.py:169
 #, python-format
 msgid "Error connecting to Calibre server: %(error)s"
 msgstr "Error al conectar con el servidor de Calibre: %(error)s"
 
-#: blueprints/api/books.py:532
+#: blueprints/api/books.py:545
 msgid "Username not found in user_dict."
 msgstr "Nombre de usuario no encontrado en user_dict."
 
-#: blueprints/api/books.py:535
+#: blueprints/api/books.py:548
 msgid "No files were uploaded."
 msgstr "No se subió ningún archivo."
 
-#: blueprints/api/books.py:544 blueprints/api/books.py:646
+#: blueprints/api/books.py:557 blueprints/api/books.py:659
 msgid "No files selected for uploading."
 msgstr "No se seleccionaron archivos para subir."
 
-#: blueprints/api/books.py:558
+#: blueprints/api/books.py:571
 msgid "`ebook-converter` tool is missing, cannot convert file."
 msgstr "Falta la herramienta `ebook-converter`, no se puede convertir el archivo."
 
-#: blueprints/api/books.py:568
+#: blueprints/api/books.py:581
 #, python-format
 msgid "Conversion failed: %(details)s"
 msgstr "La conversión falló: %(details)s"
 
-#: blueprints/api/books.py:613
+#: blueprints/api/books.py:626
 #, python-format
 msgid "Book '%(title)s' already exists in the library."
 msgstr "El libro '%(title)s' ya existe en la biblioteca."
 
-#: blueprints/api/books.py:622
+#: blueprints/api/books.py:635
 #, python-format
 msgid "Reactivated previously deleted book '%(title)s'."
 msgstr "Se reactivó el libro eliminado previamente '%(title)s'."
 
-#: blueprints/api/books.py:624
+#: blueprints/api/books.py:637
 #, python-format
 msgid "Book '%(title)s' uploaded successfully."
 msgstr "Libro '%(title)s' subido correctamente."
 
-#: blueprints/api/books.py:630
+#: blueprints/api/books.py:643
 #, python-format
 msgid "Failed to process '%(filename)s': %(error)s"
 msgstr "Error al procesar '%(filename)s': %(error)s"
 
-#: blueprints/api/books.py:637 blueprints/api/books.py:678
+#: blueprints/api/books.py:650 blueprints/api/books.py:691
 #: blueprints/api/calibre.py:22
 msgid "You do not have permission to upload books."
 msgstr "No tienes permiso para subir libros."
 
-#: blueprints/api/books.py:642
+#: blueprints/api/books.py:655
 msgid "No file part in the request."
 msgstr "No hay parte de archivo en la solicitud."
 
@@ -455,10 +463,6 @@ msgstr "No tienes permiso para editar este libro."
 #: blueprints/api/calibre.py:139
 msgid "No fields provided to update."
 msgstr "No se proporcionaron campos para actualizar."
-
-#: blueprints/api/calibre.py:154
-msgid "Metadata updated successfully."
-msgstr "Metadatos actualizados correctamente."
 
 #: blueprints/api/calibre.py:156
 msgid "Calibre returned an unknown response."
@@ -560,7 +564,7 @@ msgstr "No se encontró historial para este libro."
 
 #: blueprints/api/llm.py:179
 msgid "MCP module is not available, cannot process book content."
-msgstr ""
+msgstr "El módulo MCP no está disponible, no se puede procesar el contenido del libro."
 "El módulo MCP no está disponible, no se puede procesar el contenido del "
 "libro."
 
@@ -649,7 +653,7 @@ msgstr ""
 #: blueprints/api/llm.py:252 blueprints/api/llm.py:327
 #: static/js/page/translations.js:87
 msgid "Please provide a comprehensive summary and a profound review of this book."
-msgstr ""
+msgstr "Proporciona un resumen completo y una reseña profunda de este libro."
 "Por favor, proporcione un resumen completo y una reseña profunda de este "
 "libro."
 
@@ -932,7 +936,7 @@ msgstr "Error al restablecer los intentos de inicio de sesión"
 #: blueprints/api/user_activities.py:434
 #, python-format
 msgid "Administrator %(admin)s deleted all activity logs for user: %(username)s"
-msgstr ""
+msgstr "El administrador %(admin)s eliminó todos los registros de actividad del usuario: %(username)s"
 "El administrador %(admin)s eliminó todos los registros de actividad del "
 "usuario: %(username)s"
 
@@ -948,13 +952,13 @@ msgstr "Error al eliminar las actividades del usuario"
 #: blueprints/api/user_activities.py:460
 #, python-format
 msgid "Administrator %(admin)s deleted all user activity logs"
-msgstr ""
+msgstr "El administrador %(admin)s eliminó todos los registros de actividad de los usuarios"
 "El administrador %(admin)s eliminó todos los registros de actividad de "
 "los usuarios"
 
 #: blueprints/api/user_activities.py:463
 msgid "Successfully deleted all user activity logs"
-msgstr ""
+msgstr "Se eliminaron correctamente todos los registros de actividad de los usuarios"
 "Se eliminaron correctamente todos los registros de actividad de los "
 "usuarios"
 
@@ -1183,7 +1187,7 @@ msgstr ""
 
 #: static/js/page/translations.js:28
 msgid "Are you sure you want to delete this book? This action cannot be undone."
-msgstr ""
+msgstr "¿Seguro que quieres eliminar este libro? Esta acción no se puede deshacer."
 "¿Estás seguro de que quieres eliminar este libro? Esta acción no se puede"
 " deshacer."
 
@@ -1226,7 +1230,7 @@ msgstr "¡Todos los libros se han subido correctamente!"
 
 #: static/js/page/translations.js:38
 msgid "Some files failed to upload. Please check the progress details."
-msgstr ""
+msgstr "Algunos archivos no se pudieron subir. Revisa los detalles del progreso."
 "Algunos archivos no se han podido subir. Por favor, comprueba los "
 "detalles del progreso."
 
@@ -1814,7 +1818,7 @@ msgstr "Ocurrió un error"
 
 #: static/js/settings/common.js:72
 msgid "Please enter a test recipient email address."
-msgstr ""
+msgstr "Introduce una dirección de correo del destinatario de prueba."
 "Por favor, introduce una dirección de correo electrónico de destinatario "
 "de prueba."
 
@@ -2213,7 +2217,7 @@ msgstr "¿Estás seguro de que quieres desbloquear esta cuenta de usuario?"
 
 #: static/js/settings/user_activities.js:756
 msgid "Are you sure you want to reset failed login attempts for this user?"
-msgstr ""
+msgstr "¿Seguro que quieres restablecer los intentos de inicio de sesión fallidos de este usuario?"
 "¿Estás seguro de que quieres restablecer los intentos de inicio de sesión"
 " fallidos para este usuario?"
 
@@ -2563,7 +2567,7 @@ msgstr "Código de invitación"
 
 #: templates/register.html:28
 msgid "Please enter the invite code provided by an administrator"
-msgstr ""
+msgstr "Introduce el código de invitación proporcionado por un administrador"
 "Por favor, introduce el código de invitación proporcionado por un "
 "administrador"
 
@@ -2890,7 +2894,7 @@ msgstr "Duración de la sesión (días)"
 
 #: templates/settings/settings_global.html:94
 msgid "The number of days a user's session remains valid after logging in."
-msgstr ""
+msgstr "El número de días que la sesión de un usuario sigue siendo válida después de iniciar sesión."
 "El número de días que la sesión de un usuario permanece válida después de"
 " iniciar sesión."
 
@@ -2927,7 +2931,7 @@ msgstr "Bandeja de entrada de prueba"
 
 #: templates/settings/settings_global.html:109
 msgid "Enter an email address to receive a test email"
-msgstr ""
+msgstr "Introduce una dirección de correo para recibir un correo de prueba"
 "Introduce una dirección de correo electrónico para recibir un correo de "
 "prueba"
 
@@ -2977,7 +2981,7 @@ msgstr "Dejar en blanco para que no caduque"
 
 #: templates/settings/settings_invite_code.html:18
 msgid "Number of hours after which this invite code will expire (optional)"
-msgstr ""
+msgstr "Número de horas tras las cuales caducará este código de invitación (opcional)"
 "Número de horas después de las cuales caducará este código de invitación "
 "(opcional)"
 
@@ -3029,7 +3033,7 @@ msgstr "Paso 1: Configurar el almacenamiento en la nube WebDAV"
 
 #: templates/settings/settings_koreader.html:7
 msgid "In KOReader, go to `Cloud storage` -> `Add new cloud storage`."
-msgstr ""
+msgstr "En KOReader, ve a `Almacenamiento en la nube` -> `Añadir nuevo almacenamiento en la nube`."
 "En KOReader, ve a `Almacenamiento en la nube` -> `Añadir nuevo "
 "almacenamiento en la nube`."
 
@@ -3217,7 +3221,7 @@ msgstr "Encuentra libros sobre programación en Python."
 
 #: templates/settings/settings_mcp.html:26
 msgid "Search for science fiction books by Isaac Asimov published after 1950."
-msgstr ""
+msgstr "Busca libros de ciencia ficción de Isaac Asimov publicados después de 1950."
 "Busca libros de ciencia ficción de Isaac Asimov publicados después de "
 "1950."
 
@@ -3227,7 +3231,7 @@ msgstr "Gestión de Libros"
 
 #: templates/settings/settings_mcp.html:32
 msgid "What are the 5 most recently added books? Send the first one to my Kindle."
-msgstr ""
+msgstr "¿Cuáles son los 5 libros añadidos más recientemente? Envía el primero a mi Kindle."
 "¿Cuáles son los 5 libros añadidos más recientemente? Envía el primero a "
 "mi Kindle."
 
@@ -3237,7 +3241,7 @@ msgstr "Empuja el libro 'Dune' a mi lector Anx."
 
 #: templates/settings/settings_mcp.html:38
 msgid "Upload the book 'The Three-Body Problem' from my Anx library to Calibre."
-msgstr ""
+msgstr "Sube el libro «El problema de los tres cuerpos» desde mi biblioteca Anx a Calibre."
 "Sube el libro 'El problema de los tres cuerpos' de mi biblioteca Anx a "
 "Calibre."
 
@@ -3345,7 +3349,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:85
 msgid "Push a Calibre book to the user's Anx library. Parameters: `book_id` (int)"
-msgstr ""
+msgstr "Envía un libro de Calibre a la biblioteca Anx del usuario. Parámetros: `book_id` (int)"
 "Enviar un libro de Calibre a la biblioteca Anx del usuario. Parámetros: "
 "`book_id` (int)"
 
@@ -3408,7 +3412,7 @@ msgstr ""
 
 #: templates/settings/settings_mcp.html:93
 msgid "Get audiobook generation status by task ID. Parameters: `task_id` (str)"
-msgstr ""
+msgstr "Obtiene el estado de generación del audiolibro por ID de tarea. Parámetros: `task_id` (str)"
 "Obtener el estado de la generación de un audiolibro por ID de tarea. "
 "Parámetros: `task_id` (str)"
 
@@ -3666,7 +3670,7 @@ msgstr "Seleccionar o escribir una voz"
 
 #: templates/settings/settings_user_settings.html:66
 msgid "The voice to use for generation. e.g., zh-CN-YunjianNeural for Edge TTS."
-msgstr ""
+msgstr "La voz que se usará para la generación. p. ej., zh-CN-YunjianNeural para Edge TTS."
 "La voz que se utilizará para la generación. Por ejemplo, zh-CN-"
 "YunjianNeural para Edge TTS."
 
@@ -3686,7 +3690,7 @@ msgstr "URL base"
 
 #: templates/settings/settings_user_settings.html:76
 msgid "Custom base URL for the API (for proxies or self-hosted models)."
-msgstr ""
+msgstr "URL base personalizada para la API (para proxies o modelos autohospedados)."
 "URL base personalizada para la API (para proxies o modelos "
 "autohospedados)."
 
@@ -3697,7 +3701,7 @@ msgstr "Modelo"
 
 #: templates/settings/settings_user_settings.html:81
 msgid "The specific model to use, e.g., tts-1-hd (if supported by the provider)."
-msgstr ""
+msgstr "El modelo específico que se usará, p. ej., tts-1-hd (si el proveedor lo admite)."
 "El modelo específico que se utilizará, por ejemplo, tts-1-hd (si lo "
 "admite el proveedor)."
 
@@ -3757,7 +3761,7 @@ msgstr "El proveedor de modelos de lenguaje grandes a utilizar para MCP."
 
 #: templates/settings/settings_user_settings.html:130
 msgid "Custom base URL for the API (e.g., for proxies or self-hosted models)."
-msgstr ""
+msgstr "URL base personalizada para la API (p. ej., para proxies o modelos autohospedados)."
 "URL base personalizada para la API (por ejemplo, para proxies o modelos "
 "autohospedados)."
 
@@ -3807,7 +3811,7 @@ msgstr "Autenticación de dos factores (2FA)"
 
 #: templates/settings/settings_user_settings.html:165
 msgid "Please use your authenticator app to scan this QR code:"
-msgstr ""
+msgstr "Usa tu aplicación de autenticación para escanear este código QR:"
 "Por favor, usa tu aplicación de autenticación para escanear este código "
 "QR:"
 
@@ -3838,5 +3842,4 @@ msgstr "Se requiere permiso de administrador."
 #: utils/decorators.py:37
 msgid "Authentication required."
 msgstr "Autenticación requerida."
-
 
